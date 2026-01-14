@@ -5,13 +5,13 @@ O projeto reúne jogos educativos, sistema de temas, recursos de acessibilidade 
 
 ---
 
-## 🧠 Objetivo do Projeto
+## Objetivo do Projeto
 
 Desenvolver uma aplicação web que una **educação e tecnologia**, promovendo o aprendizado por meio de jogos e interações visuais, aplicando conceitos fundamentais de desenvolvimento web, organização de código e acessibilidade digital.
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 - **HTML5** — Estrutura semântica  
 - **CSS3** — Estilização, responsividade e temas  
@@ -45,12 +45,6 @@ Desenvolver uma aplicação web que una **educação e tecnologia**, promovendo 
   - Preferências salvas no navegador  
 
 - 💬 Chat interativo  
-
----
-
-## 📱 Responsividade
-
-Aplicação desenvolvida com foco em **design responsivo**, garantindo boa experiência em desktop, tablet e dispositivos móveis.
 
 ---
 
