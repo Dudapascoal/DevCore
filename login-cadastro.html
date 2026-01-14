@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dev Core</title>
+
+  <link rel="shortcut icon" href="img/short-logo.png">
+      <link rel="stylesheet" href="css/dark-theme.css" />
+    <link rel="stylesheet" href="css/daltonic-theme-dark.css" />
+    <link rel="stylesheet" href="css/daltonic-theme.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@100;400;600;700&family=Poppins:wght@400;500;600&display=swap"
+    rel="stylesheet" />
+
+  <style>
+    /* RESET */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    /* CONTAINER PRINCIPAL */
+    .container {
+      width: 100%;
+      height: 100%;
+      background: black;
+      display: flex;
+      overflow: hidden;
+    }
+
+    /* LADO PRETO COM LOGO */
+    .welcome-box {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: black;
+      color: #fff;
+      padding: 20px;
+    }
+
+    /* LOGO IGUAL HEADER/FOOTER */
+    .logo-login {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .left-footer {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .left-footer img {
+      width: 70px;
+    }
+
+    .subtitulo-footer {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .subtitulo-footer h1 {
+      font-size: 2.2rem;
+      color: #bd467f;
+      font-weight: 500;
+      margin: 0;
+    }
+
+    .subtitulo-footer h1 span {
+      color: white;
+    }
+
+    .subtitulo-footer p {
+      font-size: 0.9rem;
+      color: rgb(200, 200, 200);
+      margin-top: 3px;
+    }
+
+    /* BOXES */
+    .login-side,
+    .signup-side {
+      width: 50%;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      min-height: 100vh;
+    }
+
+    .login-side {
+      clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
+    }
+
+    .signup-side {
+      clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+    }
+
+    .form-box {
+      width: 100%;
+      max-width: 280px;
+    }
+
+    .form-box h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 22px;
+      font-weight: 600;
+      color: black;
+    }
+
+    .input-box {
+      position: relative;
+      margin: 20px 0;
+    }
+
+    .input-box input {
+      width: 100%;
+      padding: 12px 40px 12px 10px;
+      border: none;
+      border-bottom: 2px solid #bd467f;
+      background: transparent;
+      outline: none;
+      color: black;
+    }
+
+    .input-box input::placeholder {
+      color: #bd467f;
+    }
+
+    .input-box i {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #bd467f;
+    }
+
+    .form-box button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 25px;
+      background: linear-gradient(45deg, #ad2a69, #000000);
+      color: white;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .form-box button:hover {
+      opacity: 0.85;
+    }
+
+    .form-box p {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 14px;
+      color: black;
+    }
+
+    .form-box p a {
+      color: #bd467f;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    /* DIVISOR */
+    .divider {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      text-align: center;
+      margin: 45px 0 25px;
+    }
+
+    .divider span {
+      flex: 1;
+      height: 3px;
+      background-color: #bd467f;
+      border-radius: 2px;
+    }
+
+    .divider p {
+      margin: 0 12px;
+      font-size: 14px;
+      font-weight: 600;
+      color: black;
+      white-space: nowrap;
+    }
+
+    /* GOOGLE LOGIN */
+    .google-login {
+      display: flex;
+      justify-content: center;
+    }
+
+    .google-btn {
+      all: unset;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent !important;
+      border: none !important;
+      padding: 0 !important;
+    }
+
+    .google-btn img {
+      width: 25px;
+      height: 25px;
+      transition: transform 0.2s ease;
+    }
+
+    .google-btn:hover img {
+      transform: scale(1.1);
+    }
+
+    /* UPLOAD */
+    .upload-btn {
+      margin: 10px 0 5px;
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      background-color: #bd467f;
+      color: white;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .upload-btn:hover {
+      opacity: .85;
+    }
+
+    /* FEEDBACK DO UPLOAD */
+    #uploadFeedback {
+      font-size: 13px;
+      color: green;
+      margin-bottom: 20px;
+      display: none;
+      text-align: center;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+
+<body class="page-user">
+
+  <!-- LOGIN -->
+  <div class="container fade" id="login-container">
+
+    <div class="login-side">
+      <div class="form-box">
+        <h2>Login</h2>
+
+        <div class="input-box">
+          <input type="text" placeholder="Username">
+          <i class="fas fa-user"></i>
+        </div>
+
+        <div class="input-box">
+          <input type="password" placeholder="Password">
+          <i class="fas fa-lock"></i>
+        </div>
+
+        <button onclick="logar()">Entrar</button>
+
+        <div class="divider">
+          <span></span>
+          <p>Ou utilize sua conta</p>
+          <span></span>
+        </div>
+
+        <div class="google-login">
+          <button class="google-btn">
+            <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg">
+          </button>
+        </div>
+
+        <p>Não tem uma conta? <a onclick="showSignUp()">Cadastre-se</a></p>
+      </div>
+    </div>
+
+    <div class="welcome-box">
+      <div class="logo-login">
+        <div class="left-footer">
+          <img src="img/logo.png">
+          <div class="subtitulo-footer">
+            <h1>Dev <span>Core</span></h1>
+            <p>Jogos de Administração</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CADASTRO -->
+  <div class="container hidden fade" id="signup-container">
+
+    <div class="welcome-box">
+      <div class="logo-login">
+        <div class="left-footer">
+          <img src="img/logo.png">
+          <div class="subtitulo-footer">
+            <h1>Dev <span>Core</span></h1>
+            <p>Jogos de Administração</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="signup-side">
+      <div class="form-box">
+        <h2>Cadastro</h2>
+
+        <div class="input-box">
+          <input type="text" placeholder="Username">
+          <i class="fas fa-user"></i>
+        </div>
+
+        <div class="input-box">
+          <input type="email" placeholder="Email">
+          <i class="fas fa-envelope"></i>
+        </div>
+
+        <div class="input-box">
+          <input type="password" placeholder="Password">
+          <i class="fas fa-lock"></i>
+        </div>
+
+        <!-- UPLOAD -->
+        <input type="file" id="fotoUpload" accept="image/*" class="hidden">
+        <button class="upload-btn" onclick="document.getElementById('fotoUpload').click()">Enviar foto de
+          perfil</button><br>
+
+        <p id="uploadFeedback">✔ Foto enviada com sucesso!</p>
+
+
+        <button onclick="cadastrar()">Cadastrar</button>
+
+        <p>Já tem uma conta? <a onclick="showLogin()">Login</a></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const loginBox = document.getElementById('login-container');
+    const signupBox = document.getElementById('signup-container');
+
+    function showSignUp() {
+      loginBox.classList.add('hidden');
+      signupBox.classList.remove('hidden');
+    }
+
+    function showLogin() {
+      signupBox.classList.add('hidden');
+      loginBox.classList.remove('hidden');
+    }
+
+    const USERS_KEY = "users";
+    const CURRENT_KEY = "userData";
+
+    function getUsers() {
+      return JSON.parse(localStorage.getItem(USERS_KEY)) || [];
+    }
+
+    function saveUsers(list) {
+      localStorage.setItem(USERS_KEY, JSON.stringify(list));
+    }
+
+    // Feedback do upload
+    document.getElementById("fotoUpload").addEventListener("change", function () {
+      const feedback = document.getElementById("uploadFeedback");
+
+      if (this.files.length > 0) {
+        feedback.style.display = "block";
+        feedback.textContent = "✔ Foto enviada com sucesso!";
+      } else {
+        feedback.style.display = "none";
+      }
+    });
+
+    // CADASTRAR
+    function cadastrar() {
+      const username = document.querySelector('#signup-container input[placeholder="Username"]').value.trim();
+      const email = document.querySelector('#signup-container input[placeholder="Email"]').value.trim();
+      const pass = document.querySelector('#signup-container input[placeholder="Password"]').value;
+
+      const fileInput = document.getElementById("fotoUpload");
+      let fotoBase64 = "img/default-profile.png";
+
+      if (fileInput.files.length > 0) {
+        const file = fileInput.files[0];
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+          fotoBase64 = e.target.result;
+          salvarCadastro(username, email, pass, fotoBase64);
+        };
+
+        reader.readAsDataURL(file);
+      } else {
+        salvarCadastro(username, email, pass, fotoBase64);
+      }
+    }
+
+    function salvarCadastro(username, email, pass, fotoFinal) {
+      if (!username || !email || !pass) {
+        alert("Preencha todos os campos!");
+        return;
+      }
+
+      const users = getUsers();
+
+      if (users.some(u => u.email.toLowerCase() === email.toLowerCase())) {
+        alert("Já existe uma conta com esse e-mail.");
+        return;
+      }
+
+      const usuario = {
+        nome: username,
+        email,
+        senha: pass,
+        foto: fotoFinal
+      };
+
+      users.push(usuario);
+      saveUsers(users);
+
+      localStorage.setItem(CURRENT_KEY, JSON.stringify(usuario));
+      window.location.href = "index.html";
+    }
+
+    // LOGIN
+    function logar() {
+      const ident = document.querySelector('#login-container input[placeholder="Username"]').value.trim();
+      const senha = document.querySelector('#login-container input[placeholder="Password"]').value;
+
+      const users = getUsers();
+
+      const user = users.find(u =>
+        u.email.toLowerCase() === ident.toLowerCase() ||
+        u.nome.toLowerCase() === ident.toLowerCase()
+      );
+
+      if (!user) {
+        alert("Usuário não encontrado!");
+        return;
+      }
+
+      if (user.senha !== senha) {
+        alert("Senha incorreta!");
+        return;
+      }
+
+      localStorage.setItem(CURRENT_KEY, JSON.stringify(user));
+      window.location.href = "index.html";
+    }
+  </script>
+
+<script src="JS/themes.js" defer></script>
+
+</body>
+
+</html>

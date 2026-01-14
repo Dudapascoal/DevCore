@@ -1,0 +1,527 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
+
+@font-face {
+  font-family: 'Game';
+  /* Nome que você vai usar no CSS */
+  src: url('../fonts/Midnight\ Gelactic\ DEMO\ VERSION.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  text-decoration: none;
+  list-style: none;
+}
+
+body {
+  background: #f3f3f7;
+  color: #1a1a1a;
+  overflow-x: hidden;
+  /* Impede barra de rolagem lateral */
+
+}
+
+/* HERO SECTION */
+.hero {
+  display: flex;
+  align-items: center;
+  /* garante alinhamento vertical */
+  justify-content: space-between;
+  padding: 60px 80px;
+  flex-wrap: wrap;
+  gap: 20px;
+  /* evita quebra estranha */
+  align-items: flex-start;
+  /* Antes: center */
+}
+
+
+.hero-text {
+  width: 50%;
+  min-width: 320px;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom: 15px;
+}
+
+.hero-text span {
+  color: #bd467f;
+}
+
+.hero-text p {
+  color: #555;
+  font-size: 1rem;
+  margin-bottom: 25px;
+  max-width: 90%;
+}
+
+.buttons {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.btn-primary {
+  background: #bd467f;
+  color: black;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  /* Transição suave */
+}
+
+/* Efeito hover */
+.btn-primary:hover {
+  box-shadow: 0 8px 10px rgba(255, 11, 243, 0.2);
+  /* Leve sombra */
+  transform: scale(1.05);
+  /* Pequeno aumento de tamanho */
+}
+
+
+.btn-secondary {
+  background: #fff;
+  border: 2px solid #ddd;
+  padding: 12px 28px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  /* Transição suave */
+}
+
+/* Efeito hover */
+.btn-secondary:hover {
+  box-shadow: 0 8px 10px rgba(46, 44, 46, 0.2);
+  /* Leve sombra */
+  transform: scale(1.05);
+  /* Pequeno aumento de tamanho */
+}
+
+
+/* TAGS */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  background: black;
+  padding: 20px;
+  border-radius: 25px;
+  color: #fff;
+  width: fit-content;
+  margin-bottom: 30px;
+}
+
+.tags span {
+  background: #333;
+  padding: 8px 18px;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  color: #ddacfb;
+}
+
+.tags .highlight {
+  background: #ddacfb;
+  color: black;
+
+}
+
+/* STATS */
+.stats {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.stats h3 {
+  font-size: 1.3rem;
+}
+
+.stats h3 span {
+  display: block;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.avatars {
+  display: flex;
+}
+
+.avatars img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  margin-left: -10px;
+}
+
+.join {
+  background: #bd467f;
+  color: black;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  /* Transição suave */
+}
+
+.join:hover {
+  box-shadow: 0 8px 10px rgba(255, 11, 243, 0.2);
+  /* Leve sombra */
+  transform: scale(1.05);
+  /* Pequeno aumento de tamanho */
+}
+
+/* IMAGE */
+.hero-image {
+  width: 45%;
+  min-width: 600px;
+  position: relative;
+  text-align: center;
+  justify-content: center;
+  /* novo */
+  display: flex;
+  align-items: flex-start;
+  /* garante alinhamento perfeito com o topo do texto */
+  margin-top: 0;
+  /* zera qualquer deslocamento */
+
+}
+
+.hero-image img {
+  width: 100%;
+  border-radius: 25px;
+  background: transparent;
+  display: block;
+  /* novo */
+}
+
+.badge {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #000;
+  color: #fff;
+  padding: 10px 25px;
+  border-radius: 25px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 950px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-text,
+  .hero-image {
+    width: 100%;
+  }
+
+  .hero-text h1 {
+    font-size: 2.2rem;
+  }
+
+  .buttons {
+    justify-content: center;
+  }
+
+  .tags {
+    margin: 0 auto 30px auto;
+  }
+
+  .stats {
+    justify-content: center;
+  }
+}
+
+.section-title-1,
+.section-title {
+  text-align: center;
+  margin-bottom: 50px;
+  margin-top: 20px;
+  font-size: 2.5rem;
+  color: black;
+  position: relative;
+  width: 100%;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+  padding-bottom: 20px;
+}
+
+/* Linha abaixo do título */
+.section-title-1::after,
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 4px;
+  background-color: #bd467f;
+  transition: width 0.3s ease;
+}
+
+/* Quando passa o mouse, a linha aparece maior */
+.section-title:hover::after,
+.section-title-1:hover::after {
+  width: 150px;
+}
+
+.card-container {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+  animation: fadeInUp 0.8s ease;
+}
+
+.card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 28px;
+  width: 400px;
+  text-align: left;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+.icon {
+  background: #f3f3f3;
+  width: 80px;
+  /* círculo maior */
+  height: 80px;
+  /* círculo maior */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  transition: background 0.6s ease, transform 0.6s ease;
+}
+
+.icon i {
+  font-size: 25px;
+  /* ícones maiores (Font Awesome) */
+  transition: transform 0.3s ease;
+  color: #000000;
+  /* pode mudar a cor do ícone se quiser */
+}
+
+
+.icon img {
+  width: 80px;
+  height: 80px;
+  transition: transform 0.3s ease;
+}
+
+/* ✨ Efeito hover colorido no círculo */
+.card:hover .icon {
+  background: linear-gradient(135deg, #ee69a9, #ddacfb);
+  transform: scale(1.08);
+}
+
+.card:hover .icon img {
+  transform: scale(1.1);
+}
+
+.card h3 {
+  font-size: 1.15rem;
+  color: #1f1f1f;
+  margin-bottom: 8px;
+}
+
+.card p {
+  color: #6c757d;
+  font-size: 0.9rem;
+  margin-bottom: 18px;
+  line-height: 1.5;
+}
+
+.card a {
+  text-decoration: none;
+  color: #8a4bb2;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.card a:hover {
+  color: black;
+}
+
+/* 💫 Animação suave ao aparecer */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.team-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 25px;
+}
+
+.team-card {
+  background: #091841;
+  border-radius: 15px;
+  overflow: hidden;
+  width: 300px;
+  /* largura aumentada */
+  text-align: center;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 8px 12px 10px rgba(255, 11, 243, 0.342);
+  /* Leve sombra */
+}
+
+.team-card-header {
+  background: linear-gradient(135deg, #ff6ec4, #a373f5);
+  padding: 40px 20px 40px;
+  /* padding maior para caber a imagem */
+  position: relative;
+}
+
+.team-card-header img {
+  width: 95px;
+  height: 95px;
+  border-radius: 50%;
+  border: 3px solid white;
+  position: absolute;
+  bottom: -47px;
+  /* metade da altura da imagem + pequena margem */
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  object-fit: cover;
+  /* mantém proporção da imagem */
+}
+
+.team-card-body {
+  padding: 70px 20px 20px;
+}
+
+.team-card-body h3 {
+  margin: 0 0 10px;
+  font-size: 20px;
+  font-family: "DM Sans", sans-serif;
+}
+
+.team-card-body p {
+  font-size: 14px;
+  line-height: 1.4;
+  color: #d1d1d1;
+}
+
+/* ===================== MENU LATERAL ===================== */
+.accessibility-menu {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 60px;
+  background: #ffffff;
+  /* fundo padrão */
+  padding: 60px 0 20px;
+  border-radius: 0 30px 30px 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+  transition: all 0.3s ease;
+  z-index: 9999;
+}
+
+.accessibility-menu.closed {
+  transform: translate(-50px, -50%);
+}
+
+/* Botão de toggle */
+.accessibility-menu .toggle-btn {
+  position: absolute;
+  top: 10px;
+  right: -18px;
+  width: 35px;
+  height: 35px;
+  background: #111;
+  /* padrão */
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* Ícones em coluna */
+.accessibility-menu .icons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 35px;
+}
+
+.accessibility-menu .icons button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 22px;
+  color: #111;
+  /* padrão */
+  transition: 0.2s;
+}
+
+.accessibility-menu .icons button:hover {
+  transform: scale(1.2);
+}
+
+
+/* GARANTE QUE O VLibras APAREÇA */
+[vw-access-button] {
+  z-index: 999999 !important;
+  position: fixed !important;
+}

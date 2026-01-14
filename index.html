@@ -1,0 +1,554 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dev Core</title>
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="css/header.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/chat.css" />
+  <link rel="stylesheet" href="css/daltonic-theme.css" />
+  <script src="JS/chat.js" defer></script>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="img/logo.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+
+<body>
+
+
+  <!-- ================= HEADER ================= -->
+  <header>
+    <div class="left">
+      <a href="index.html" class="logo">
+        <img src="img/logo.png" alt="Logo DevCore" class="logo-img">
+      </a>
+      <div class="subtitulo-logo">
+        <h1>Dev <span>Core</span></h1>
+        <p>Jogos de Administração</p>
+      </div>
+    </div>
+
+    <nav class="navbar">
+      <a href="index.html" class="active">Home</a>
+      <a href="quem-somos.html">Quem Somos</a>
+      <a href="nossos-jogos.html">Nossos Jogos</a>
+    </nav>
+
+    <div class="user-area">
+      <div class="profile-container" id="profileButton">
+        <!-- ÍCONE ORIGINAL -->
+        <i class="fa-solid fa-user-circle login-icon" id="profileIcon"></i>
+
+        <!-- NOME DO USUÁRIO (APARECE APÓS LOGIN) -->
+        <span id="profileName"></span>
+
+        <!-- SETINHA DO DROPDOWN (APARECE SOMENTE LOGADO) -->
+        <i class="fa-solid fa-caret-down" id="caretDropdown" style="display:none;"></i>
+      </div>
+
+      <!-- DROPDOWN -->
+      <div class="profile-dropdown" id="profileDropdown">
+        <a href="configurar-perfil.html">Configurar Perfil</a>
+        <a href="#" id="logoutBtn">Sair</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- IMPORTA O JS DO HEADER -->
+  <script src="JS/header.js"></script>
+
+
+
+
+  <main class="hero">
+    <div class="hero-text">
+      <h1>Construa <br> seu futuro com a <br><span>Dev</span> Core</h1>
+      <p>Nosso foco é garantir que todos, independentemente de suas habilidades, possam aprender de forma interativa e
+        inclusiva. Nossos jogos ajudam estudantes e profissionais a dominar conceitos administrativos de maneira prática
+        e eficaz.</p>
+      <div class="buttons">
+        <button class="btn-primary">Começar</button>
+        <button class="btn-secondary">Saiba Mais</button>
+      </div>
+
+      <div class="tags">
+        <span>Planejamento estratégico</span>
+        <span>Pensamento crítico</span>
+        <span>Gestão de processos</span>
+        <span class="highlight">Acessibilidade</span>
+        <span>Ética e responsabilidade</span>
+        <span>Marketing e vendas</span>
+      </div>
+
+      <div class="stats">
+        <h3>Seja +1 <span> Usuário</span></h3>
+        <div class="avatars">
+          <img src="https://i.pravatar.cc/40?img=1" alt="">
+          <img src="https://i.pravatar.cc/40?img=2" alt="">
+          <img src="https://i.pravatar.cc/40?img=3" alt="">
+        </div>
+        <button class="join">Cadastre-se agora
+        </button>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <div class="badge">Gerencie, jogue e vença.</div>
+      <img src="img/devcore (1).png" alt="Pessoa usando óculos VR">
+    </div>
+  </main>
+
+  <h2 class="section-title">Categorias</h2><br>
+
+  <div class="card-container">
+    <div class="card">
+      <div class="icon">
+        <i class="fas fa-lightbulb"></i>
+      </div>
+      <h3>Gestão Estratégica</h3>
+      <p>Processo de definir objetivos de longo prazo e planejar ações para alcançar vantagem competitiva.
+      </p>
+      <a href="#">Aprenda jogando →</a>
+    </div>
+
+    <div class="card">
+      <div class="icon">
+        <i class="fas fa-coins"></i>
+      </div>
+      <h3>Finanças</h3>
+      <p>Finanças é a gestão de recursos, investimentos e fluxos de dinheiro para garantir saúde econômica e
+        crescimento.
+      </p>
+      <a href="#">Aprenda jogando →</a>
+    </div>
+
+    <div class="card">
+      <div class="icon">
+        <i class="fas fa-truck"></i>
+      </div>
+      <h3>Logística</h3>
+      <p>Planejamento e controle de transporte, armazenamento e distribuição de produtos de forma eficiente.
+      </p>
+      <a href="#">Aprenda jogando →</a>
+    </div>
+  </div><br><br><br>
+
+  <h2 class="section-title">Conheça a nossa equipe</h2>
+
+  <div class="team-container">
+    <div class="team-card">
+      <div class="team-card-header">
+        <img src="img/Duda.jpeg" alt="Membro 1">
+      </div>
+      <div class="team-card-body">
+        <h3>Maria Eduarda Pascoal</h3>
+        <p>Estudante: <br>Técnica em Análise e Desenvolvimento de Sistemas.</p>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-card-header">
+        <img src="img/Heloise.jpeg" alt="Membro 2">
+      </div>
+      <div class="team-card-body">
+        <h3>Heloise Lemos</h3>
+        <p>Estudante: <br>Técnica em Análise e Desenvolvimento de Sistemas.</p>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-card-header">
+        <img src="img/melissa.jpeg" alt="Membro 2">
+      </div>
+      <div class="team-card-body">
+        <h3>Melissa Assis</h3>
+        <p>Estudante: <br>Técnica em Análise e Desenvolvimento de Sistemas.</p>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-card-header">
+        <img src="img/Yasmin.jpeg" alt="Membro 3">
+      </div>
+      <div class="team-card-body">
+        <h3>Yasmin Ferreira</h3>
+        <p>Estudante: <br>Técnica em Análise e Desenvolvimento de Sistemas.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="team-container">
+    <div class="team-card">
+      <div class="team-card-header">
+        <img src="img/mariaf.png" alt="Membro 1">
+      </div>
+      <div class="team-card-body">
+        <h3>Maria Fernanda Candido</h3>
+        <p>Estudante: <br>Técnica em Administração.</p>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-card-header">
+        <img src="img/Vitoria.png" alt="Membro 2">
+      </div>
+      <div class="team-card-body">
+        <h3>Vitória Bispo</h3>
+        <p>Estudante: <br>Técnica em Administração.</p>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-card-header">
+        <img src="img/ludmila.jpeg" alt="Membro 3">
+      </div>
+      <div class="team-card-body">
+        <h3>Ludmila Ataíde</h3>
+        <p>Estudante: <br>Técnica em Administração.</p>
+      </div>
+    </div>
+  </div>
+  <br><br><br>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-left">
+        <!-- Logo e título lado a lado -->
+        <div class="left-footer">
+          <a href="#" class="logo">
+            <img src="img/logo.png" alt="DevCore" class="logo-empresa" />
+          </a>
+
+          <div class="subtitulo-footer">
+            <h1>Dev <span>Core</span></h1>
+            <p>Jogos de Administração</p>
+          </div>
+        </div>
+
+        <!-- Redes sociais -->
+        <div class="social-links">
+          <a href="#" class="social-icon facebook">
+            <img src="img/facebook icon.png" alt="Facebook" />
+          </a>
+          <a href="#" class="social-icon instagram">
+            <img src="img/instagram icon.png" alt="Instagram" />
+          </a>
+          <a href="#" class="social-icon linkedin">
+            <img src="img/linkedin icon.png" alt="LinkedIn" />
+          </a>
+          <a href="#" class="social-icon linkedin">
+            <img src="img/twitter.jpg" alt="LinkedIn" />
+          </a>
+          <a href="#" class="social-icon tiktok">
+            <img src="img/wtt.png" alt="WhatsApp" />
+          </a>
+        </div>
+
+        <!-- Pagamentos -->
+        <div class="payment-methods">
+        </div>
+      </div>
+
+      <div class="footer-center">
+        <h4>Assine nossa newsletter</h4>
+        <p>Seja o primeiro a descobrir novos jogos!!!</p>
+        <br />
+        <form action="#">
+          <input type="email" placeholder="Digite seu E-mail:" />
+          <button type="submit">Inscrever</button>
+        </form>
+        <br />
+        <p>
+          Ao se inscrever, você está aceitando nossa
+          <a href="#">Política de Privacidade</a>
+        </p>
+      </div>
+
+      <div class="footer-right">
+        <div class="footer-info">
+          <h4>Sobre:</h4>
+          <ul>
+            <li><a href="quem-somos.html">Quem somos</a></li>
+            <li><a href="index.html">Home (Tela Inicial)</a></li>
+            <li><a href="nossos-jogos.html">Nossos Jogos</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Meios de Contato:</h4>
+          <ul>
+            <li>Email:suporte@devcore.com</li>
+            <li>WhatsApp: (11) 99999-9999</li>
+            <li>Central de atendimento</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © 2025 Dev Core | Desenvolvido por Maria Eduarda Moreira Pascoal |
+      Quem domina o conhecimento, administra o futuro.
+    </div>
+  </footer>
+
+  <!-- Plugin VLibras -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+
+  <div class="accessibility-menu closed">
+    <button class="toggle-btn">></button>
+
+    <div class="icons">
+      <button id="toggle-theme">
+        <i class="fas fa-adjust"></i>
+      </button>
+
+      <button id="daltonic-mode">
+        <i class="fas fa-eye"></i>
+
+      </button>
+
+      <button id="increase-font">
+        <i class="fas fa-plus"></i>
+      </button>
+
+      <button id="decrease-font">
+        <i class="fas fa-minus"></i>
+      </button>
+    </div>
+  </div>
+
+
+
+
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+      // =================== HELPERS ===================
+      const addCss = (id, href) => {
+        let el = document.getElementById(id);
+        if (!el) {
+          el = document.createElement("link");
+          el.rel = "stylesheet";
+          el.id = id;
+          el.href = href;
+          document.head.appendChild(el);
+        } else {
+          el.href = href;
+        }
+      };
+
+      const removeCss = (id) => {
+        const el = document.getElementById(id);
+        if (el) el.remove();
+      };
+
+      const getCurrentFontSize = () => {
+        const size = window.getComputedStyle(document.body).fontSize;
+        const parsed = parseInt(size, 10);
+        return Number.isNaN(parsed) ? 16 : parsed;
+      };
+
+      // =================== MENU LATERAL ===================
+      const menu = document.querySelector(".accessibility-menu");
+      const btnToggle = document.querySelector(".toggle-btn");
+      if (btnToggle && menu) {
+        btnToggle.addEventListener("click", () => {
+          menu.classList.toggle("closed");
+          btnToggle.textContent = menu.classList.contains("closed") ? ">" : "<";
+        });
+      }
+
+      // =================== VARIÁVEIS ===================
+      const themeToggleBtn = document.getElementById("toggle-theme");
+      const daltonicBtn = document.getElementById("daltonic-mode");
+      const incBtn = document.getElementById("increase-font");
+      const decBtn = document.getElementById("decrease-font");
+
+      const ID_DARK_CSS = "dark-theme-css";
+      const ID_DALTONIC_CSS = "daltonic-theme-css";
+
+      const PATH_DARK = "css/dark-theme.css";
+      const PATH_DALTONIC_DARK = "css/daltonic-theme-dark.css";
+      const PATH_DALTONIC_LIGHT = "css/daltonic-theme-light.css";
+
+      // =================================================
+      // ========== 🔥 CARREGAR TEMA SALVO 🔥 ============
+      // =================================================
+      const savedTheme = localStorage.getItem("theme");   // "dark" ou "light"
+      const savedDaltonic = localStorage.getItem("daltonic"); // "on" ou "off"
+      const savedFont = localStorage.getItem("font-size"); // px
+
+      // Tema claro/escuro
+      if (savedTheme === "dark") {
+        document.body.classList.add("dark");
+        addCss(ID_DARK_CSS, PATH_DARK);
+      }
+
+      // Daltonismo
+      if (savedDaltonic === "on") {
+        document.body.classList.add("daltonic");
+        const file = savedTheme === "dark" ? PATH_DALTONIC_DARK : PATH_DALTONIC_LIGHT;
+        addCss(ID_DALTONIC_CSS, file);
+      }
+
+      // Fonte
+      if (savedFont) {
+        document.body.style.fontSize = savedFont + "px";
+      }
+
+      // =================================================
+      // ========= 🔥 BOTÃO: TEMA ESCURO/CLARO 🔥 =========
+      // =================================================
+      if (themeToggleBtn) {
+        themeToggleBtn.addEventListener("click", () => {
+          document.body.classList.toggle("dark");
+
+          const isDarkNow = document.body.classList.contains("dark");
+
+          // salva no localStorage
+          localStorage.setItem("theme", isDarkNow ? "dark" : "light");
+
+          if (isDarkNow) {
+            addCss(ID_DARK_CSS, PATH_DARK);
+          } else {
+            removeCss(ID_DARK_CSS);
+          }
+
+          // Se modo daltônico ativado → aplica versão certa
+          if (document.body.classList.contains("daltonic")) {
+            const file = isDarkNow ? PATH_DALTONIC_DARK : PATH_DALTONIC_LIGHT;
+            addCss(ID_DALTONIC_CSS, file);
+          }
+        });
+      }
+
+      // =================================================
+      // ========= 🔥 BOTÃO: MODO DALTÔNICO 🔥 ============
+      // =================================================
+      if (daltonicBtn) {
+        daltonicBtn.addEventListener("click", () => {
+          const isActivating = !document.body.classList.contains("daltonic");
+          document.body.classList.toggle("daltonic");
+
+          localStorage.setItem("daltonic", isActivating ? "on" : "off");
+
+          if (isActivating) {
+            const isDark = document.body.classList.contains("dark");
+            const file = isDark ? PATH_DALTONIC_DARK : PATH_DALTONIC_LIGHT;
+            addCss(ID_DALTONIC_CSS, file);
+          } else {
+            removeCss(ID_DALTONIC_CSS);
+          }
+        });
+      }
+
+      // =================================================
+      // === 🔥 AUMENTAR / DIMINUIR FONTE + SALVAR 🔥 ====
+      // =================================================
+      const changeFontSize = (delta) => {
+        const current = getCurrentFontSize();
+        const next = Math.max(12, Math.min(36, current + delta));
+
+        localStorage.setItem("font-size", next);
+
+        document.body.style.fontSize = next + "px";
+      };
+
+      if (incBtn) incBtn.addEventListener("click", () => changeFontSize(2));
+      if (decBtn) decBtn.addEventListener("click", () => changeFontSize(-2));
+    });
+
+
+  </script>
+
+
+  <!-- BOTÃO DO CHAT -->
+  <button id="chatbotToggle" class="chatbot-btn">
+    <img src="img/Chatbot-icon.png" alt="Chat" class="chat-icon">
+  </button>
+
+
+  <!-- JANELA DO CHAT -->
+  <div class="chat-container-mini" id="chatContainer">
+    <header class="chat-header">Chat DevCore</header>
+
+    <div class="chat-box" id="chatBox">
+      <div class="bot-message message">Olá, como posso ajudar você hoje?</div>
+    </div>
+
+    <div class="input-container">
+      <input type="text" id="userInput" placeholder="Digite sua mensagem..." onkeydown="checkEnter(event)">
+      <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+    </div>
+  </div>
+
+
+  <script>
+    // Mostrar / esconder chat
+    const chatToggle = document.getElementById("chatbotToggle");
+    const chatBoxContainer = document.getElementById("chatContainer");
+
+    chatToggle.addEventListener("click", () => {
+      chatBoxContainer.style.display =
+        chatBoxContainer.style.display === "flex" ? "none" : "flex";
+    });
+
+    // Função para enviar mensagens
+    function sendMessage() {
+      const input = document.getElementById("userInput");
+      const message = input.value.trim();
+
+      if (message === "") return;
+
+      const chatBox = document.getElementById("chatBox");
+
+      const userMessage = document.createElement("div");
+      userMessage.classList.add("user-message", "message");
+      userMessage.textContent = message;
+
+      chatBox.appendChild(userMessage);
+
+      input.value = "";
+      input.focus();
+
+      // resposta automática
+      const botMessage = document.createElement("div");
+      botMessage.classList.add("bot-message", "message");
+      botMessage.textContent = "Esta é uma resposta automática do bot.";
+
+      chatBox.appendChild(botMessage);
+
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    // Enviar com Enter
+    function checkEnter(event) {
+      if (event.key === "Enter") sendMessage();
+    }
+  </script>
+
+<script src="JS/themes.js" defer></script>
+
+
+</body>
+
+</html>

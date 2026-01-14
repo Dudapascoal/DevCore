@@ -1,0 +1,175 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
+
+/* ================= HEADER ================= */
+header {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 8%;
+  background: white;
+  backdrop-filter: blur(10px);
+
+  /* NOVO — centralização real */
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+
+  z-index: 100;
+  overflow: visible;
+}
+
+/* ESQUERDA */
+.left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-img {
+  width: 55px;
+  height: auto;
+  object-fit: contain;
+  margin: 0;
+}
+
+.subtitulo-logo {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.subtitulo-logo h1 {
+  font-size: 1.8rem;
+  color: #bd467f;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+}
+
+.subtitulo-logo h1 span {
+  color: black;
+}
+
+.subtitulo-logo p {
+  font-size: 0.8rem;
+  color: rgb(130, 129, 129);
+  margin-top: -1px !important;
+   font-family: 'Poppins', sans-serif !important;
+}
+
+/* ================= NAVBAR CENTRALIZADA ================= */
+.navbar {
+  display: flex;
+  gap: 30px !important;
+  justify-content: center;
+}
+
+.navbar a {
+  position: relative;
+  font-size: 18px ;
+  color: black;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  line-height: 1.0;
+  padding: 6px 0;
+}
+
+
+
+.navbar a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0%;
+  height: 3px !important;
+  background: #bd467f;
+  transition: 0.4s ease;
+  border-radius: 2px;
+}
+
+.navbar a:hover::after,
+.navbar a.active::after {
+  width: 100%;
+}
+
+.navbar a:hover,
+.navbar a.active {
+  color: #bd467f;
+}
+
+/* ================= ÁREA DO USUÁRIO ================= */
+.user-area {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  z-index: 10;
+}
+
+.profile-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+/* FOTO DE PERFIL AJUSTADA */
+header .profile-container img,
+.user-area .profile-container img {
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  border: 2px solid #bd467f !important;
+}
+
+.profile-container span {
+  font-weight: 500;
+}
+
+/* ÍCONE DE LOGIN */
+.login-icon {
+  color: #bd467f;
+  font-size: 35px;
+  transition: 0.3s ease;
+}
+
+.login-icon:hover {
+  transform: scale(1.15);
+}
+
+/* ================= DROPDOWN ================= */
+.profile-dropdown {
+  display: none;
+  position: absolute;
+  background: white;
+  right: 0;
+  top: 60px;
+  min-width: 160px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  flex-direction: column;
+  z-index: 1000;
+}
+
+.profile-dropdown a {
+  padding: 10px;
+  text-decoration: none;
+  color: black !important;
+  font-family: "Poppins", sans-serif;
+}
+
+.profile-dropdown a:hover {
+  background: #f4f4f4;
+}
+
+/* ==== SOBRESCREVE H1 GLOBAL APENAS NO LOGO ==== */
+header .subtitulo-logo h1 {
+  width: auto !important;
+  text-align: left !important;
+  display: inline-block;
+  margin: 0;
+  line-height: 1.1;
+}

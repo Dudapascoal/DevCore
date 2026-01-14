@@ -1,0 +1,587 @@
+ * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  text-decoration: none;
+  list-style: none;
+}
+ 
+/* =========================
+   EVITAR SCROLL HORIZONTAL
+   ========================= */
+html, body {
+    overflow-x: hidden; /* remove scroll horizontal */
+}
+
+.staff-container {
+    max-width: 100%; /* evita que grid ultrapasse a tela */
+}
+
+ 
+ body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        background: #f5f5f5;
+    }
+
+    .banner {
+        width: 100%;
+        height: 500px;
+        background: linear-gradient(135deg, #fdfbff, #ffcfe8,#ecd9ff);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: black;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Bolhas */
+    .bubble {
+        position: absolute;
+        background: rgba(255,255,255,0.15);
+        border-radius: 50%;
+        filter: blur(2px);
+        animation: float 8s infinite ease-in-out;
+    }
+
+    .b1 { width: 160px; height: 160px; top: 60px; left: 80px; }
+    .b2 { width: 110px; height: 110px; bottom: 120px; right: 150px; }
+    .b3 { width: 80px; height: 80px; bottom: 40%; left: 45%; }
+
+    @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+        100% { transform: translateY(0px); }
+    }
+
+    h1 {
+        font-size: 64px;
+        font-weight: 700;
+        margin: 0;
+        color: #bd467f;
+    }
+
+    h1 span {
+        color: black !important;
+    }
+
+    p {
+        font-size: 18px;
+        opacity: 0.9;
+        margin-top: 15px;
+    }
+
+    .buttons {
+        margin-top: 40px;
+        display: flex;
+        gap: 20px;
+    }
+
+    .btn {
+        padding: 15px 32px;
+        border-radius: 40px;
+        font-size: 18px;
+        border: 2px solid white;
+        cursor: pointer;
+        transition: .3s;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .btn-primary {
+        background: #ffffff;
+        color: #bd467f;
+        border: none;
+    }
+
+    .btn-primary:hover {
+        background: #ececec;
+    }
+
+    .btn-outline {
+        background: transparent;
+        color: #bd467f;
+        border: 2px solid #bd467f;
+    }
+
+    .btn-outline:hover {
+        background: rgba(255, 255, 255, 0.2);
+    }
+
+    .section-title-1,
+.section-title {
+  text-align: center;
+  margin-bottom: 50px;
+  margin-top: 20px;
+  font-size: 2.5rem;
+  color: black;
+  position: relative;
+  width: 100%;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+  padding-bottom: 20px;
+}
+
+/* Linha abaixo do título */
+.section-title-1::after,
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 4px;
+  background-color: #bd467f;
+  transition: width 0.3s ease;
+}
+
+/* Quando passa o mouse, a linha aparece maior */
+.section-title:hover::after,
+.section-title-1:hover::after {
+  width: 150px;
+}
+
+/* ===== CONTAINER ===== */
+.staff-container {
+  display: grid;
+  grid-template-columns: repeat(3, 350px); /* mantém 3 colunas fixas */
+  justify-content: center;
+  align-items: start;
+  gap: 80px 120px; /* espaçamento entre linhas e colunas */
+  padding: 60px 20px;
+  width: max-content; /* mede exatamente o tamanho dos cards */
+  margin: 0 auto;
+  box-sizing: border-box;
+
+  /* 🔹 Compensa visualmente a projeção das imagens à esquerda */
+  transform: translateX(35px); /* ajuste fino – você pode reduzir p/ 40px ou 50px conforme o olhar */
+}
+
+/* ===== CARD ===== */
+.staff-item {
+  position: relative;
+  background: #fff;
+  color: black !important;
+  border-radius: 18px;
+  padding: 25px 20px 20px 110px;
+  width: 350px;
+  height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  overflow: visible;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.staff-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 8px 12px 10px rgba(255, 11, 243, 0.342);
+}
+
+/* ===== IMAGEM ===== */
+.staff-photo {
+  position: absolute;
+  left: -75px; /* imagem “para fora” do card */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 160px;
+  height: 160px;
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  background: none;
+}
+
+.staff-photo img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 24px;
+  transition: transform 0.3s ease;
+}
+
+/* ===== INFO ===== */
+.staff-info h3 {
+  font-size: 15px;
+  margin: 0;
+}
+
+.staff-role {
+  color: #bd467f;
+  font-weight: 600;
+  margin-bottom: 4px;
+  font-size: 13px;
+}
+
+.staff-desc {
+  font-size: 12px;
+  color: #000000;
+  margin-bottom: 10px;
+  line-height: 1.4;
+  height: 32px;
+  overflow: hidden;
+}
+
+/* ===== BOTÃO AGENDAR ===== */
+.btn-agendar {
+  background: #bd467f;
+  color: black;
+  font-weight: 500;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 18px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn-agendar:hover {
+  background-color: #ff9ac9 !important;
+  color: #111;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 1300px) {
+  .staff-container {
+    grid-template-columns: repeat(2, 350px);
+    gap: 70px 100px;
+    transform: translateX(30px); /* ajusta compensação visual para telas médias */
+  }
+}
+
+@media (max-width: 850px) {
+  .staff-container {
+    grid-template-columns: 1fr;
+    gap: 60px;
+    width: 100%;
+    transform: none; /* centralização natural no mobile */
+  }
+
+  .staff-item {
+    width: 90%;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+
+  .staff-photo {
+    left: -60px;
+    width: 130px;
+    height: 130px;
+  }
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 1100px) {
+  .staff-container {
+    grid-template-columns: repeat(2, auto);
+    gap: 50px 80px;
+  }
+}
+
+@media (max-width: 750px) {
+  .staff-container {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .staff-item {
+    width: 80%;
+    padding-left: 100px;
+    height: 150px;
+  }
+
+  .staff-photo {
+    left: -60px;
+    width: 120px;
+    height: 120px;
+  }
+}
+
+/* ===================== MENU LATERAL ===================== */
+.accessibility-menu {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 60px;
+  background: #ffffff;
+  /* fundo padrão */
+  padding: 60px 0 20px;
+  border-radius: 0 30px 30px 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+  transition: all 0.3s ease;
+  z-index: 9999;
+}
+
+.accessibility-menu.closed {
+  transform: translate(-50px, -50%);
+}
+
+/* Botão de toggle */
+.accessibility-menu .toggle-btn {
+  position: absolute;
+  top: 10px;
+  right: -18px;
+  width: 35px;
+  height: 35px;
+  background: #111;
+  /* padrão */
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* Ícones em coluna */
+.accessibility-menu .icons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 35px;
+}
+
+.accessibility-menu .icons button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 22px;
+  color: #111;
+  /* padrão */
+  transition: 0.2s;
+}
+
+.accessibility-menu .icons button:hover {
+  transform: scale(1.2);
+}
+
+/* ===== FILTRO NO BANNER ===== */
+
+.filter-banner {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 25px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background: white;
+  border: 2px solid #ffb7d9;
+  padding: 8px 22px;
+  border-radius: 20px;
+  font-size: 14px;
+  color: #b84378;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: 500;
+}
+
+.filter-btn:hover {
+  background: #ffe3f0;
+}
+
+.filter-btn.active {
+  background: #ffb7d9;
+  color: black;
+  border-color: #ff9ac9;
+}
+
+/* animação para suavizar esconder/mostrar */
+.staff-item {
+  transition: all .3s ease;
+}
+.staff-item.hide {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(.95);
+   display: none !important;
+}
+
+/* Contêiner dos botões */
+.staff-socials {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Botão Regras do Jogo — mantém igual */
+.btn-agendar {
+  padding: 10px 18px;
+  background: #bd467f;
+  color: black;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-agendar:hover {
+  background: #ff9ac9 !important;
+}
+
+/* Botão Jogar */
+.btn-play {
+  width: 40px;
+  height: 40px;
+  background: #111;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-play .icon {
+  font-size: 22px;
+  color: white;
+}
+
+.btn-play i {
+  color: #b84378 !important;
+}
+
+/* Tooltip ao passar o mouse */
+.btn-play .tooltip {
+  position: absolute;
+  bottom: -40px;
+  background: #111;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(5px);
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+/* Setinha do tooltip */
+.btn-play .tooltip::after {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid #111;
+}
+
+/* Mostrar o tooltip */
+.btn-play:hover .tooltip {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ================== MODAL CENTRALIZADO ================== */
+.modal {
+  display: none;              /* escondido por padrão */
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100vw;               /* largura total da viewport */
+  height: 100vh;              /* altura total da viewport */
+  background-color: rgba(0,0,0,0.7); /* fundo escuro */
+  
+  display: flex;              /* flexbox para centralização */
+  justify-content: center !important;    /* centraliza horizontal */
+  align-items: center;        /* centraliza vertical */
+  padding: 1rem;              /* evita encostar nas bordas em telas pequenas */
+  box-sizing: border-box;
+  overflow-y: auto;           /* evita cortar conteúdo grande */
+  margin: 0;                  /* remove margens residuais */
+}
+
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* ESSENCIAL: centraliza totalmente */
+  
+  background-color: #fff;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 700px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  padding: 1rem;
+}
+
+.modal .video-container {
+  width: 100%;
+  max-width: 700px;     /* garante que o iframe não ultrapasse o modal */
+  display: flex;
+  justify-content: center; /* centraliza iframe horizontalmente */
+}
+
+.modal .video-container iframe {
+  width: 100%;           /* ocupa a largura do container, mas limitado pelo max-width */
+  height: 400px;
+  border: none;
+  border-radius: 10px;
+}
+
+
+.modal .close {
+  color: #333;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modal .video-container iframe {
+  width: 100%;
+  height: 400px;
+  border: none;
+  border-radius: 10px;
+}
+
+/* Responsivo para celulares */
+@media (max-width: 480px) {
+  .modal-content {
+    width: 95%;
+  }
+
+  .modal .video-container iframe {
+    height: 250px;
+  }
+}
+
+/* Evita que body tenha scroll quando modal aberto */
+body.modal-open {
+  overflow: hidden;
+}
+
+#rulesModal {
+  display: none; /* isso esconde por padrão */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+  justify-content: center;
+  align-items: center;
+}

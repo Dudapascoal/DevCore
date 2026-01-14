@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/mario.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dark-theme.css">
+    <link rel="stylesheet" href="css/daltonic-theme-dark.css">
+    <link rel="stylesheet" href="css/daltonic-theme.css">
+    <script src="JS/mario.js" defer></script>
+      <!-- IMPORTA O JS DO HEADER -->
+  <script src="JS/header.js"></script>
+      <!-- Favicon -->
+  <link rel="shortcut icon" href="img/logo.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <title>Super Mario Bros - Jogo Educativo</title>
+</head>
+<body>
+
+      <!-- ================= HEADER ================= -->
+  <!-- ================= HEADER ================= -->
+  <header>
+    <div class="left">
+      <a href="index.html" class="logo">
+        <img src="img/logo.png" alt="Logo DevCore" class="logo-img">
+      </a>
+      <div class="subtitulo-logo">
+        <h1>Dev <span>Core</span></h1>
+        <p>Jogos de Administração</p>
+      </div>
+    </div>
+
+    <nav class="navbar">
+      <a href="index.html">Home</a>
+      <a href="quem-somos.html">Quem Somos</a>
+      <a href="nossos-jogos.html" class="active">Nossos Jogos</a>
+    </nav>
+
+    <div class="user-area">
+      <div class="profile-container" id="profileButton">
+        <!-- ÍCONE ORIGINAL -->
+        <i class="fa-solid fa-user-circle login-icon" id="profileIcon"></i>
+
+        <!-- NOME DO USUÁRIO (APARECE APÓS LOGIN) -->
+        <span id="profileName"></span>
+
+        <!-- SETINHA DO DROPDOWN (APARECE SOMENTE LOGADO) -->
+        <i class="fa-solid fa-caret-down" id="caretDropdown" style="display:none;"></i>
+      </div>
+
+      <!-- DROPDOWN -->
+      <div class="profile-dropdown" id="profileDropdown">
+        <a href="configurar-perfil.html">Configurar Perfil</a>
+        <a href="#" id="logoutBtn">Sair</a>
+      </div>
+    </div>
+  </header><br><br>
+  <!-- V-Libras -->
+<div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+    </div>
+</div>
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+<script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+</script>
+
+  <h2 class="section-title">Super Mário</h2>
+
+    <div class="game-board">
+        <img src="img/clouds.png" class="clouds">
+        <img src="img/mario.gif" class="mario">
+        
+        <img src="img/pipe.png" class="pipe" id="pipe1">
+        
+        <!-- Bloco Azul (Prever) -->
+        <img src="img/bloco prever.png" class="bloco" id="blocoPrever">
+        <!-- Bloco Vermelho (Organizar) -->
+        <img src="img/bloco de organizar.png" class="bloco2" id="blocoOrganizar">
+        <!-- Bloco Amarelo (Entrega) -->
+        <img src="img/bloco de entrega.png" class="bloco1" id="blocoEntrega">
+        <!-- NOVO: Bloco (Produzir) -->
+        <img src="img/bloco produzir.png" class="bloco3" id="blocoProduzir">
+        
+        <!-- Moedas -->
+        <img src="img/moeda do mario.gif" class="moeda" id="moeda1">
+        <img src="img/moeda do mario.gif" class="moeda" id="moeda2">
+        <img src="img/moeda do mario.gif" class="moeda" id="moeda3">
+        <img src="img/moeda do mario.gif" class="moeda" id="moeda4">
+        <img src="img/moeda do mario.gif" class="moeda" id="moeda5">
+        <img src="img/moeda do mario.gif" class="moeda" id="moeda6">
+        <img src="img/moeda do mario.gif" class="moeda" id="moeda7">
+       
+        <div class="coin-counter">
+            Moedas: <span id="coin-score">0</span>
+        </div>
+    </div>
+
+    <!-- Overlay para escurecer a tela quando pausar -->
+    <div class="overlay" id="overlay"></div>
+<br><br><br>
+      <footer>
+    <div class="footer-container">
+      <div class="footer-left">
+        <!-- Logo e título lado a lado -->
+        <div class="left-footer">
+          <a href="#" class="logo">
+            <img src="img/logo.png" alt="DevCore" class="logo-empresa" />
+          </a>
+
+          <div class="subtitulo-footer">
+            <h1>Dev <span>Core</span></h1>
+            <p>Jogos de Administração</p>
+          </div>
+        </div>
+
+        <!-- Redes sociais -->
+        <div class="social-links">
+          <a href="#" class="social-icon facebook">
+            <img src="img/facebook icon.png" alt="Facebook" />
+          </a>
+          <a href="#" class="social-icon instagram">
+            <img src="img/instagram icon.png" alt="Instagram" />
+          </a>
+          <a href="#" class="social-icon linkedin">
+            <img src="img/linkedin icon.png" alt="LinkedIn" />
+          </a>
+          <a href="#" class="social-icon linkedin">
+            <img src="img/twitter.jpg" alt="LinkedIn" />
+          </a>
+          <a href="#" class="social-icon tiktok">
+            <img src="img/wtt.png" alt="WhatsApp" />
+          </a>
+        </div>
+
+        <!-- Pagamentos -->
+        <div class="payment-methods">
+        </div>
+      </div>
+
+      <div class="footer-center">
+        <h4>Assine nossa newsletter</h4>
+        <p>Seja o primeiro a descobrir novos jogos!!!</p>
+        <br />
+        <form action="#">
+          <input type="email" placeholder="Digite seu E-mail:" />
+          <button type="submit">Inscrever</button>
+        </form>
+        <br />
+        <p>
+          Ao se inscrever, você está aceitando nossa
+          <a href="#">Política de Privacidade</a>
+        </p>
+      </div>
+
+      <div class="footer-right">
+        <div class="footer-info">
+          <h4>Sobre:</h4>
+          <ul>
+            <li><a href="quem-somos.html">Quem somos</a></li>
+            <li><a href="index.html">Home (Tela Inicial)</a></li>
+            <li><a href="nossos-jogos.html">Nossos Jogos</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Meios de Contato:</h4>
+          <ul>
+            <li>Email:suporte@devcore.com</li>
+            <li>WhatsApp: (11) 99999-9999</li>
+            <li>Central de atendimento</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © 2025 Dev Core | Desenvolvido por Héloise Souza Lemos |
+      Quem domina o conhecimento, administra o futuro.
+    </div>
+  </footer>
+<script>
+/************************************************
+ * APLICA TEMA SALVO (VERSÃO JOGOS – DEVCORE)
+ * PADRÃO OFICIAL:
+ * - body.dark
+ * - body.daltonic
+ ************************************************/
+
+(function applyGameTheme() {
+  const theme = localStorage.getItem("theme") || "light"; // light | dark
+  const daltonic = localStorage.getItem("daltonic");     // "on" | null
+
+  const body = document.body;
+
+  // limpa estados anteriores
+  body.classList.remove("dark", "daltonic");
+
+  // aplica dark
+  if (theme === "dark") {
+    body.classList.add("dark");
+  }
+
+  // aplica daltonismo (independente do tema)
+  if (daltonic === "on") {
+    body.classList.add("daltonic");
+  }
+})();
+</script>
+
+</body>
+</html>
+
+
+

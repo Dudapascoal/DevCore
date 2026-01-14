@@ -1,0 +1,63 @@
+/* ===================== MENU LATERAL ===================== */
+.accessibility-menu {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 60px;
+  background: #ffffff;
+  /* fundo padrão */
+  padding: 60px 0 20px;
+  border-radius: 0 30px 30px 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+  transition: all 0.3s ease;
+  z-index: 9999;
+}
+
+.accessibility-menu.closed {
+  transform: translate(-50px, -50%);
+}
+
+/* Botão de toggle */
+.accessibility-menu .toggle-btn {
+  position: absolute;
+  top: 10px;
+  right: -18px;
+  width: 35px;
+  height: 35px;
+  background: #111;
+  /* padrão */
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* Ícones em coluna */
+.accessibility-menu .icons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 35px;
+}
+
+.accessibility-menu .icons button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 22px;
+  color: #111;
+  /* padrão */
+  transition: 0.2s;
+}
+
+.accessibility-menu .icons button:hover {
+  transform: scale(1.2);
+}
+

@@ -1,0 +1,821 @@
+/* =====================================================
+   DARK THEME - DevCore (LIMPO / SEM FLASH)
+   (APLICA SOMENTE COM body.dark)
+   ===================================================== */
+
+/* =========================
+   BASE
+   ========================= */
+
+/* =====================================
+   DARK THEME – VARIÁVEIS GLOBAIS
+   ===================================== */
+
+
+body.dark {
+  background-color: #000;
+  color: #eee;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* =========================
+   HEADER
+   ========================= */
+
+body.dark header {
+  background-color: #000 !important;
+  color: #fff;
+}
+
+body.dark .subtitulo-logo h1 {
+  color: #fd7cba;
+}
+
+body.dark .subtitulo-logo h1 span {
+  color: #fff !important;
+}
+
+body.dark header .navbar a {
+  color: #eee;
+}
+
+body.dark header .navbar a.active,
+body.dark header .navbar a:hover {
+  color: #fd7cba;
+}
+
+body.dark .navbar a::after {
+  background-color: #fd7cba;
+}
+
+body.dark .login-icon i {
+  color: #fd7cba;
+}
+
+/* =========================
+   HERO
+   ========================= */
+
+body.dark .hero {
+  background-color: #000;
+  color: #eee;
+}
+
+body.dark .hero h1 span {
+  color: #fd7cba;
+}
+
+body.dark .hero-text p {
+  color: #d0cfcf;
+}
+
+body.dark .hero .buttons .btn-primary {
+  background-color: #fd7cba;
+  color: #000;
+}
+
+body.dark .hero .buttons .btn-secondary {
+  background-color: transparent;
+  color: #fd7cba;
+  border: 2px solid #fd7cba;
+}
+
+body.dark .hero .tags span {
+  background-color: #333;
+  color: #ddacfb;
+}
+
+body.dark .hero .tags span.highlight {
+  background-color: #ddacfb;
+  color: #111;
+}
+
+body.dark .join {
+  background-color: #fd7cba;
+  color: #000;
+}
+
+/* =========================
+   TÍTULOS
+   ========================= */
+
+body.dark .section-title,
+body.dark .section-title-1 {
+  color: #fff;
+}
+
+body.dark .section-title::after,
+body.dark .section-title-1::after {
+  background-color: #fd7cba;
+}
+
+/* =========================
+   CARDS (GENÉRICOS)
+   ========================= */
+
+body.dark .card-container {
+  background-color: #000;
+}
+
+body.dark .card {
+  background-color: #000;
+  color: #eee;
+  border: 1px solid #333;
+}
+
+body.dark .card h3 {
+  color: #fff;
+}
+
+body.dark .card a {
+  color: #ddacfb;
+}
+
+body.dark .card a:hover {
+  color: rgb(191, 27, 202);
+}
+
+/* =========================
+   TEAM
+   ========================= */
+
+body.dark .team-container {
+  background-color: #000;
+}
+
+body.dark .team-card {
+  background-color: #000;
+  color: #eee;
+  border: 1px solid #333;
+}
+
+/* =========================
+   AVATARES
+   ========================= */
+
+body.dark .avatars img {
+  border: 2px solid #ffc107;
+}
+
+/* =====================================================
+   PÁGINA: NOSSOS JOGOS (TEMA ESCURO)
+   ===================================================== */
+
+body.dark.page-jogos {
+  background-color: #000;
+}
+
+body.dark.page-jogos .staff-item {
+  background-color: #0f0f0f;
+  border: 1px solid #2a2a2a;
+  color: #eee;
+}
+
+body.dark.page-jogos .staff-info h3 {
+  color: #fff;
+}
+
+body.dark.page-jogos .staff-role {
+  color: #fd7cba;
+}
+
+body.dark.page-jogos .staff-desc {
+  color: #cfcfcf;
+}
+
+body.dark.page-jogos .btn-play {
+  background-color: #fd7cba;
+  color: #000;
+}
+
+body.dark.page-jogos .btn-play i {
+  color: #000;
+}
+
+body.dark.page-jogos .btn-agendar {
+  background-color: transparent;
+  border: 2px solid #fd7cba;
+  color: #fd7cba;
+}
+
+body.dark.page-jogos .btn-agendar:hover{
+  color: #000;
+  font-weight: 550;
+}
+
+/* =========================
+   TRANSIÇÕES (CONTROLADAS)
+   ========================= */
+
+/* Links */
+body.dark a {
+  transition: color 0.2s ease;
+}
+
+/* Botões */
+body.dark button,
+body.dark .btn-play,
+body.dark .btn-agendar {
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+/* Cards (hover apenas) */
+body.dark .card,
+body.dark .staff-item {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+
+
+
+/* =====================================================
+   TEMA ESCURO — QUEM SOMOS | DevCore
+   ===================================================== */
+
+body.dark.page-quem-somos {
+  background-color: #0b0b0b;
+  color: #eee;
+}
+
+/* =========================
+   VARIÁVEIS SOBRESCRITAS
+   ========================= */
+
+body.dark.page-quem-somos {
+  --surface: #121212;
+  --bg: #0b0b0b;
+  --text: #eeeeee;
+  --muted: #b5b5b5;
+
+  --accent-1: #fd7cba;
+  --accent-2: #ddacfb;
+
+  --glass: rgba(255, 255, 255, 0.05);
+}
+
+/* =========================
+   BLOCOS GLASS
+   ========================= */
+
+body.dark.page-quem-somos .section-block {
+  background: linear-gradient(180deg,
+      rgba(20, 20, 20, 0.85),
+      rgba(15, 15, 15, 0.7));
+  backdrop-filter: blur(14px) saturate(1.05);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Glow */
+body.dark.page-quem-somos .section-block::before {
+  opacity: 0.25;
+}
+
+/* =========================
+   TEXTO
+   ========================= */
+
+body.dark.page-quem-somos .headline {
+  color: #ffffff;
+}
+
+body.dark.page-quem-somos .lead {
+  color: #cfcfcf;
+}
+
+body.dark.page-quem-somos h2 {
+  color: #ffffff;
+}
+
+body.dark.page-quem-somos .muted {
+  color: #aaaaaa;
+}
+
+/* =========================
+   BOTÕES
+   ========================= */
+
+body.dark.page-quem-somos .btn {
+  background: linear-gradient(90deg, #fd7cba, #ddacfb);
+  color: #000;
+}
+
+body.dark.page-quem-somos .btn.ghost {
+  background: transparent;
+  color: #fd7cba;
+  border: 2px solid rgba(253, 124, 186, 0.4);
+}
+
+/* =========================
+   STATS
+   ========================= */
+
+body.dark.page-quem-somos .stat {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+body.dark.page-quem-somos .stat span {
+  color: #bbbbbb;
+}
+
+/* =========================
+   CARDS
+   ========================= */
+
+body.dark.page-quem-somos .card,
+body.dark.page-quem-somos .how-card,
+body.dark.page-quem-somos aside .card {
+  background-color: #111;
+  border: 1px solid #222;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+body.dark.page-quem-somos .card h3 {
+  color: #fd7cba;
+}
+
+body.dark.page-quem-somos .card p {
+  color: #cccccc;
+}
+
+/* =========================
+   PILLS / TECH
+   ========================= */
+
+body.dark.page-quem-somos .pill-list span {
+  background: rgba(253, 124, 186, 0.12);
+  color: #fd7cba;
+}
+
+body.dark.page-quem-somos .tech-grid span {
+  background: #121212;
+  border: 1px solid #222;
+  color: #ddd;
+}
+
+/* =========================
+   TIMELINE
+   ========================= */
+
+body.dark.page-quem-somos .timeline-list {
+  border-left-color: #fd7cba;
+}
+
+body.dark.page-quem-somos .timeline-list li::before {
+  background: #fd7cba;
+  border-color: #111;
+}
+
+/* =========================
+   ORBS
+   ========================= */
+
+body.dark.page-quem-somos .orb {
+  opacity: 0.35;
+}
+
+/* =========================
+   MENU DE ACESSIBILIDADE
+   ========================= */
+
+body.dark.page-quem-somos .accessibility-menu {
+  background: #111;
+}
+
+body.dark.page-quem-somos .accessibility-menu .icons button {
+  color: #eee;
+}
+
+body.dark.page-quem-somos .accessibility-menu .toggle-btn {
+  background: #fd7cba;
+  color: #000;
+}
+
+/* =========================================================
+   TEMA ESCURO – CAÇA-PALAVRAS (DEVCORE)
+   body.dark.page-quem-palavras
+   ========================================================= */
+
+body.dark.page-quem-palavras {
+  background-color: #000000 !important;
+  color: #e5e7eb;
+}
+
+/* ================= HEADER DA PÁGINA ================= */
+body.dark.page-quem-palavras .page-header .section-title {
+  color: #e5e7eb;
+}
+
+body.dark.page-quem-palavras .page-header .subtitle {
+  color: #94a3b8;
+}
+
+/* Linha animada do título */
+body.dark.page-quem-palavras .section-title::after,
+body.dark.page-quem-palavras .section-title-1::after {
+  background-color: #f472b6;
+}
+
+/* ================= ÁREA DO JOGO ================= */
+body.dark.page-quem-palavras .game-wrapper {
+  background: transparent;
+  box-shadow: none;
+}
+
+/* Grid externo */
+body.dark.page-quem-palavras #grid-container {
+  background: #0f172a;
+}
+
+/* Células */
+body.dark.page-quem-palavras .cell {
+  background-color: black;
+  color: #cbd5f5;
+  border: 1px solid #40076e;
+}
+
+/* Hover */
+body.dark.page-quem-palavras .cell:hover {
+  background-color: #1e293b;
+  color: #ffffff;
+  box-shadow: 0 0 8px rgba(170, 99, 241, 0.4);
+}
+
+/* Selecionadas */
+body.dark.page-quem-palavras .cell.selected {
+  background-color: #9333ea;
+  color: #ffffff;
+}
+
+/* Encontradas */
+body.dark.page-quem-palavras .cell.found {
+  background-color: #f472b6 !important;
+  color: #020617 !important;
+}
+
+/* Dica */
+body.dark.page-quem-palavras .cell.hint-anim {
+  background-color: #38bdf8 !important;
+  color: #020617 !important;
+  box-shadow: 0 0 15px #38bdf8;
+}
+
+/* ================= PAINEL LATERAL ================= */
+body.dark.page-quem-palavras .controls-panel {
+  background: transparent;
+}
+
+/* Caixa de palavras */
+body.dark.page-quem-palavras .words-box {
+  background: #000000;
+  border: 1px solid #000000;
+}
+
+/* Título da lista */
+body.dark.page-quem-palavras .words-box h3 {
+  color: #f472b6;
+  border-bottom: 1px solid #1e293b;
+}
+
+/* Lista */
+body.dark.page-quem-palavras .word-item {
+  background: #000000;
+  color: #cbd5e4;
+  border: 1px solid #1e293b;
+}
+
+/* Palavra encontrada */
+body.dark.page-quem-palavras .word-item.found {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border-color: #10b981;
+}
+
+/* ================= BOTÕES ================= */
+body.dark.page-quem-palavras .btn-reset {
+  background-color: #9333ea;
+  color: #ffffff;
+}
+
+body.dark.page-quem-palavras .btn-hint {
+  background-color: #f472b6;
+  color: #020617;
+}
+
+/* Hover geral */
+body.dark.page-quem-palavras button:hover {
+  filter: brightness(1.15);
+}
+
+/* ================= MODAL VITÓRIA ================= */
+body.dark.page-quem-palavras #victory-modal {
+  background: rgba(2, 6, 23, 0.9);
+}
+
+body.dark.page-quem-palavras .modal-content {
+  background: #020617;
+  color: #e5e7eb;
+}
+
+body.dark.page-quem-palavras .modal-content h2 {
+  color: #34d399;
+}
+
+body.dark.page-quem-palavras .modal-content p {
+  color: #94a3b8;
+}
+
+
+body.dark.memory .quiz-option:hover {
+  background: #f472b6;
+  color: #000;
+}
+
+/* =====================================================
+   PAGE LOJA — TEMA ESCURO (DEVCORE)
+   Escopo: body.dark.page-loja
+   ===================================================== */
+
+body.dark.page-loja {
+  background-color: #000;
+  color: #eee;
+}
+
+/* ================= TÍTULOS ================= */
+
+body.dark.page-loja main h1,
+body.dark.page-loja .virtual h1,
+body.dark.page-loja #game-area h1 {
+  color: #fd7cba;
+}
+
+/* ================= TEXTO ================= */
+
+body.dark.page-loja main p {
+  color: #d0cfcf;
+}
+
+/* ================= ÁREA DO JOGO ================= */
+
+body.dark.page-loja #game-area {
+  background-color: #000;
+  border: 3px solid #fd7cba;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+/* ================= NARRATIVA ================= */
+
+body.dark.page-loja #narrative {
+  background: #0f0f0f;
+  color: #eee;
+  border-left: 5px solid #fd7cba;
+}
+
+/* Vitória — sem verde */
+body.dark.page-loja #narrative.win {
+  background: linear-gradient(45deg, #111, #000);
+  border-left-color: #ddacfb;
+  color: #eee;
+  animation: winPulseDarkDevcore 1s ease-in-out infinite alternate;
+}
+
+@keyframes winPulseDarkDevcore {
+  from { box-shadow: 0 0 12px rgba(221, 172, 251, 0.25); }
+  to   { box-shadow: 0 0 22px rgba(221, 172, 251, 0.5); }
+}
+
+/* Derrota — sem vermelho */
+body.dark.page-loja #narrative.lose {
+  background: linear-gradient(45deg, #0b0b0b, #000);
+  border-left-color: #fd7cba;
+  color: #eee;
+}
+
+/* ================= STATS ================= */
+
+body.dark.page-loja .stat {
+  background: #000;
+  border: 1px solid #333;
+  color: #eee;
+}
+
+body.dark.page-loja .stat:hover {
+  transform: scale(1.05);
+}
+
+/* ================= OPÇÕES ================= */
+
+body.dark.page-loja .option-card {
+  background: #000;
+  border: 2px solid #fd7cba;
+  color: #eee;
+}
+
+body.dark.page-loja .option-card::before {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(221, 172, 251, 0.25),
+    transparent
+  );
+}
+
+body.dark.page-loja .option-card:hover {
+  background: #0f0f0f;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.7);
+}
+
+body.dark.page-loja .option-card h3 {
+  color: #fd7cba;
+}
+
+body.dark.page-loja .option-card p {
+  color: #cfcfcf;
+}
+
+/* ================= MODAL ================= */
+
+body.dark.page-loja #modal {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+body.dark.page-loja #modal-content {
+  background: #000;
+  color: #eee;
+  border: 2px solid #ddacfb;
+}
+
+body.dark.page-loja #modal-content h3 {
+  color: #fd7cba;
+}
+
+body.dark.page-loja #modal-content li {
+  background: #0f0f0f;
+  border: 1px solid #222;
+}
+
+/* ================= BOTÕES ================= */
+
+body.dark.page-loja button {
+  background-color: #fd7cba;
+  color: #000;
+}
+
+body.dark.page-loja button:hover {
+  background-color: #ddacfb;
+  color: #000;
+}
+
+/* Botões do modal */
+body.dark.page-loja #modal-content button {
+  background-color: #fd7cba;
+  color: #000;
+}
+
+body.dark.page-loja #modal-content button:hover {
+  background-color: #ddacfb;
+  color: #000;
+}
+
+/* ================= CONFETTI ================= */
+
+body.dark.page-loja .confetti {
+  background: #fd7cba;
+}
+
+body.dark.page-loja .confetti:nth-child(2n) {
+  background: #ddacfb;
+}
+
+body.dark.page-loja .confetti:nth-child(3n) {
+  background: #ffc107;
+}
+
+body.dark.page-loja .confetti:nth-child(4n) {
+  background: #9ecbff;
+}
+
+body.dark.page-loja .confetti:nth-child(5n) {
+  background: #f472b6;
+}
+
+/* ================= SECTION TITLES ================= */
+
+body.dark.page-loja .section-title,
+body.dark.page-loja .section-title-1 {
+  color: #fff;
+}
+
+body.dark.page-loja .section-title::after,
+body.dark.page-loja .section-title-1::after {
+  background-color: #fd7cba;
+}
+
+/* =================================================
+   CHATBOT — TEMA ESCURO (DEVCORE)
+   Escopo: body.dark
+   ================================================= */
+
+/* ================= BOTÃO FLUTUANTE ================= */
+body.dark .chatbot-btn {
+
+    background-color: transparent;
+    border: 3px solid #fd7cba;
+    
+    box-shadow: 0 10px 25px rgba(0,0,0,0.8);
+  
+}
+
+body.dark .chatbot-btn:hover {
+    background-color: transparent;
+}
+
+/* ================= CONTAINER DO CHAT ================= */
+body.dark .chat-container-mini {
+
+    background-color: #000;
+    
+    border: 1px solid #333;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.7);
+  
+}
+
+/* ================= CABEÇALHO ================= */
+body.dark .chat-header {
+    background-color: #000;
+    color: #ffffff !important;
+
+    border-bottom: 1px solid #333;
+}
+
+/* ================= ÁREA DE MENSAGENS ================= */
+body.dark .chat-box {
+
+    background-color: #0f0f0f;
+
+}
+
+/* ================= ANIMAÇÃO ================= */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+
+/* BOT */
+body.dark .bot-message {
+    background-color: #111;
+    color: #eeeeee;
+   
+    border-left: 4px solid #ddacfb;
+}
+
+/* USUÁRIO */
+body.dark .user-message {
+    background-color: #fd7cba;
+    color: #000000;
+   
+    border-right: 4px solid #000;
+}
+
+/* ================= INPUT ================= */
+body.dark .input-container {
+
+    background-color: #000;
+    border-top: 1px solid #333;
+
+}
+
+body.dark .input-container input {
+ 
+    background-color: #0f0f0f;
+    color: #eeeeee;
+    border: 1px solid #333;
+
+}
+
+body.dark .input-container input::placeholder {
+    color: #aaaaaa;
+}
+
+body.dark .input-container input:focus {
+    border-color: #fd7cba;
+}
+
+/* ================= BOTÃO ENVIAR ================= */
+body.dark .input-container button {
+
+    background-color: transparent;
+    color: #fd7cba;
+
+}
+
+body.dark .input-container button:hover {
+    color: #ddacfb;
+}
+

@@ -1,0 +1,171 @@
+/* Botão flutuante */
+.chatbot-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 2000;
+    background-color: transparent;
+    border: 3px solid #ff68c2;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition: 0.3s ease;
+}
+
+.chatbot-btn:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Ícone do botão como imagem */
+.chatbot-btn img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    transition: 0.3s;
+}
+
+.chatbot-btn:hover img {
+    filter: none;
+}
+
+/* Container do chat */
+.chat-container-mini {
+    position: fixed;
+    bottom: 100px;
+    right: 25px;
+    width: 330px;
+    height: 450px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 2000;
+}
+
+/* Cabeçalho */
+.chat-header {
+    background-color: #ddacfb;
+    color: black !important;
+    padding: 15px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    width: 100%;
+}
+
+/* Área de mensagens */
+.chat-box {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background-color: #f1f3f5;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+
+/* Animação */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mensagens */
+.message {
+    max-width: 75%;
+    padding: 10px 14px;
+    border-radius: var(--border-radius);
+    line-height: 1.4;
+    animation: fadeIn 0.25s ease-out;
+    font-size: 0.83rem; /* 🔥 tamanho menor */
+}
+
+/* Mensagem do BOT */
+.bot-message {
+    background-color: #dee2e6;
+    color: var(--text-dark);
+    align-self: flex-start;
+    border-bottom-left-radius: 0;
+     font-size: 0.83rem; /* 🔥 tamanho menor */
+     border-radius: 10px;
+     border-left: 4px solid #ddacfb;
+}
+
+/* Mensagem do USUÁRIO */
+.user-message {
+    background-color: #ddacfb;
+    color: black;
+    align-self: flex-end;
+    border-bottom-right-radius: 0;
+    border-radius: 10px;
+}
+
+/* Área de input */
+.input-container {
+    padding: 12px;
+    display: flex;
+    background-color: white;
+    border-top: 1px solid #dee2e6;
+    gap: 8px;
+}
+
+.input-container input {
+    flex: 1;
+    padding: 10px 14px;
+    border: 1px solid #ced4da;
+    border-radius: 30px;
+    font-size: 0.83rem; /* 🔥 tamanho menor */
+    outline: none;
+    transition: 0.3s;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+
+    
+}
+
+.input-container input:focus {
+    border-color: var(--primary-color);
+}
+
+.input-container button {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: transparent;
+    color: black;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.input-container button img {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+}
+
+
+.input-container button:hover {
+
+    color: var(--primary-color);
+}
+
+.input-container button i {
+    font-size: 1.1rem;
+}

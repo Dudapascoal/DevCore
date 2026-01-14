@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Memória Educativo - Administração e Logística</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="img/logo.png">
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/dark-theme.css" />
+    <link rel="stylesheet" href="css/daltonic-theme-dark.css" />
+    <link rel="stylesheet" href="css/daltonic-theme.css" />
+
+      <!-- IMPORTA O JS DO HEADER -->
+  <script src="JS/header.js" defer></script>
+  
+
+
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  text-decoration: none;
+  list-style: none;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background: #f3f3f7;
+  color: #000;
+}
+
+
+        .game-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+
+        body.no-scroll {
+            overflow: hidden;
+        }
+
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            width: 100%;
+        }
+
+        .game-info {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+.game-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+  max-width: 600px;
+  width: 100%;
+  padding: 20px;
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+        .card {
+            aspect-ratio: 1;
+            background: #bd467f;
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.6s !important;
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            font-size: 2rem;
+            position: relative;
+        }
+
+        .card.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card.matched {
+            background: linear-gradient(145deg, #28a745, #1e7e34);
+            cursor: default;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .card-front,
+        .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 12px;
+        }
+
+        .card-front {
+            font-size: 2rem;
+        }
+
+        .card-back {
+            background: #fff;
+            color: #333;
+            transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .card-back .icon {
+            font-size: 2rem;
+        }
+
+        .card-back .label {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 400px;
+            text-align: center;
+            color: #333;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal h2 {
+            margin-bottom: 20px;
+        }
+
+        .modal p {
+            margin-bottom: 20px;
+        }
+
+        .modal button {
+            background: #bd467f;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+
+        .modal button:hover {
+            background: #0056b3;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #ffd700;
+            animation: fall 3s linear infinite;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        /* Modais */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            overflow: hidden !important;
+        }
+
+        .modal-content {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 400px;
+            text-align: center;
+            color: #333;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+
+        }
+
+        /* CONFETTI */
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #ffd700;
+            animation: fall 3s linear infinite;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        /* QUIZ */
+        .quiz-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .quiz-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            max-width: 400px;
+            text-align: center;
+            color: #333;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .quiz-option {
+            background: #f0f0f0;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .quiz-option:hover {
+            background: #007bff;
+            color: #fff;
+        }
+
+        @media (max-width: 600px) {
+            .game-container {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .card {
+                font-size: 1.5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+</style>
+      </head>
+
+<body class="memory">
+
+
+
+    <!-- ================= HEADER ================= -->
+    <header>
+        <div class="left">
+            <a href="index.html" class="logo">
+                <img src="img/logo.png" alt="Logo DevCore" class="logo-img">
+            </a>
+            <div class="subtitulo-logo">
+                <h1>Dev <span>Core</span></h1>
+                <p>Jogos de Administração</p>
+            </div>
+        </div>
+
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="quem-somos.html">Quem Somos</a>
+            <a href="nossos-jogos.html" class="active">Nossos Jogos</a>
+        </nav>
+
+        <div class="user-area">
+            <div class="profile-container" id="profileButton">
+                <!-- ÍCONE ORIGINAL -->
+                <i class="fa-solid fa-user-circle login-icon" id="profileIcon"></i>
+
+                <!-- NOME DO USUÁRIO (APARECE APÓS LOGIN) -->
+                <span id="profileName"></span>
+
+                <!-- SETINHA DO DROPDOWN (APARECE SOMENTE LOGADO) -->
+                <i class="fa-solid fa-caret-down" id="caretDropdown" style="display:none;"></i>
+            </div>
+
+            <!-- DROPDOWN -->
+            <div class="profile-dropdown" id="profileDropdown">
+                <a href="configurar-perfil.html">Configurar Perfil</a>
+                <a href="#" id="logoutBtn">Sair</a>
+            </div>
+        </div>
+    </header>
+
+    <br>
+    <br>
+    <br>
+<main class="game-wrapper">
+    <h1>Jogo da Memória Educativo</h1>
+
+    <div class="game-info">
+        <div>Pontuação: <span id="score">0</span></div>
+        <div>Tempo: <span id="timer">120</span>s</div>
+    </div>
+
+    <div class="game-container" id="game-board"></div>
+    </main>
+  <br>
+    <br>
+    <br>
+          <footer>
+    <div class="footer-container">
+      <div class="footer-left">
+        <!-- Logo e título lado a lado -->
+        <div class="left-footer">
+          <a href="#" class="logo">
+            <img src="img/logo.png" alt="DevCore" class="logo-empresa" />
+          </a>
+
+          <div class="subtitulo-footer">
+            <h1>Dev <span>Core</span></h1>
+            <p>Jogos de Administração</p>
+          </div>
+        </div>
+
+        <!-- Redes sociais -->
+        <div class="social-links">
+          <a href="#" class="social-icon facebook">
+            <img src="img/facebook icon.png" alt="Facebook" />
+          </a>
+          <a href="#" class="social-icon instagram">
+            <img src="img/instagram icon.png" alt="Instagram" />
+          </a>
+          <a href="#" class="social-icon linkedin">
+            <img src="img/linkedin icon.png" alt="LinkedIn" />
+          </a>
+          <a href="#" class="social-icon linkedin">
+            <img src="img/twitter.jpg" alt="LinkedIn" />
+          </a>
+          <a href="#" class="social-icon tiktok">
+            <img src="img/wtt.png" alt="WhatsApp" />
+          </a>
+        </div>
+
+        <!-- Pagamentos -->
+        <div class="payment-methods">
+        </div>
+      </div>
+
+      <div class="footer-center">
+        <h4>Assine nossa newsletter</h4>
+        <p>Seja o primeiro a descobrir novos jogos!!!</p>
+        <br />
+        <form action="#">
+          <input type="email" placeholder="Digite seu E-mail:" />
+          <button type="submit">Inscrever</button>
+        </form>
+        <br />
+        <p>
+          Ao se inscrever, você está aceitando nossa
+          <a href="#">Política de Privacidade</a>
+        </p>
+      </div>
+
+      <div class="footer-right">
+        <div class="footer-info">
+          <h4>Sobre:</h4>
+          <ul>
+            <li><a href="quem-somos.html">Quem somos</a></li>
+            <li><a href="index.html">Home (Tela Inicial)</a></li>
+            <li><a href="nossos-jogos.html">Nossos Jogos</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Meios de Contato:</h4>
+          <ul>
+            <li>Email:suporte@devcore.com</li>
+            <li>WhatsApp: (11) 99999-9999</li>
+            <li>Central de atendimento</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © 2025 Dev Core | Desenvolvido por Yasmin Ferreira Possiano |
+      Quem domina o conhecimento, administra o futuro.
+    </div>
+  </footer>
+
+    <!-- WIN MODAL -->
+    <div class="modal" id="win-modal">
+        <div class="modal-content">
+            <h2>Parabéns! Você venceu!</h2>
+            <p>Pontuação: <span id="final-score"></span></p>
+            <p>Tempo restante: <span id="final-time"></span>s</p>
+            <button onclick="restartGame()">Jogar Novamente</button>
+        </div>
+    </div>
+
+    <!-- LOSE MODAL -->
+    <div class="modal" id="lose-modal">
+        <div class="modal-content">
+            <h2>Você perdeu!</h2>
+            <p>Tente novamente para melhorar sua pontuação.</p>
+            <button onclick="restartGame()">Jogar Novamente</button>
+        </div>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="quiz-modal" id="quiz-modal">
+        <div class="quiz-content">
+            <h2 id="quiz-question"></h2>
+            <div class="quiz-options" id="quiz-options"></div>
+        </div>
+    </div>
+
+
+
+
+    <!-- V-Libras -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+
+ <script>
+        const themes = [
+            { symbol: '📊', name: 'Gráfico', questions: [
+                { q: 'O que um gráfico de barras representa?', options: ['Tendências ao longo do tempo', 'Comparações entre categorias', 'Distribuição de dados', 'Relações entre variáveis'], correct: 1 },
+                { q: 'Em administração, gráficos são usados para:', options: ['Analisar vendas', 'Contar funcionários', 'Fazer café', 'Limpar o escritório'], correct: 0 }
+            ]},
+            { symbol: '👥', name: 'Equipe', questions: [
+                { q: 'O que é gestão de equipe?', options: ['Liderar e motivar pessoas', 'Comprar equipamentos', 'Fazer reuniões longas', 'Ignorar conflitos'], correct: 0 },
+                { q: 'Uma equipe eficaz em administração:', options: ['Trabalha isoladamente', 'Compartilha objetivos', 'Evita comunicação', 'Foca em tarefas individuais'], correct: 1 }
+            ]},
+            { symbol: '💼', name: 'Maleta', questions: [
+                { q: 'O que simboliza uma maleta em administração?', options: ['Trabalho móvel', 'Ferramentas de escritório', 'Viagens de negócio', 'Todas as anteriores'], correct: 3 },
+                { q: 'Em logística, uma maleta pode representar:', options: ['Transporte de documentos', 'Armazenamento de produtos', 'Gestão de suprimentos', 'Planejamento de rotas'], correct: 0 }
+            ]},
+            { symbol: '📈', name: 'Crescimento', questions: [
+                { q: 'O que indica um gráfico de crescimento?', options: ['Declínio constante', 'Aumento ao longo do tempo', 'Estabilidade', 'Flutuações aleatórias'], correct: 1 },
+                { q: 'Em administração, crescimento pode se referir a:', options: ['Redução de custos', 'Expansão de mercado', 'Diminuição de equipe', 'Perda de clientes'], correct: 1 }
+            ]},
+            { symbol: '🚚', name: 'Caminhão', questions: [
+                { q: 'O que um caminhão representa em logística?', options: ['Transporte de mercadorias', 'Armazenamento local', 'Processamento de pedidos', 'Gestão financeira'], correct: 0 },
+                { q: 'Em logística, caminhões são essenciais para:', options: ['Distribuição eficiente', 'Produção interna', 'Vendas diretas', 'Marketing digital'], correct: 0 }
+            ]},
+            { symbol: '📦', name: 'Caixa', questions: [
+                { q: 'O que uma caixa simboliza em logística?', options: ['Embalagem e transporte', 'Documentação', 'Comunicação', 'Treinamento'], correct: 0 },
+                { q: 'Em administração, caixas podem se referir a:', options: ['Unidades de produto', 'Departamentos', 'Relatórios', 'Reuniões'], correct: 0 }
+            ]},
+            { symbol: '🏭', name: 'Fábrica', questions: [
+                { q: 'O que acontece em uma fábrica?', options: ['Produção de bens', 'Vendas online', 'Gestão de pessoas', 'Análise de dados'], correct: 0 },
+                { q: 'Em logística, fábricas estão ligadas a:', options: ['Cadeia de suprimentos', 'Marketing', 'Recursos humanos', 'Finanças'], correct: 0 }
+            ]},
+            { symbol: '🗺️', name: 'Mapa', questions: [
+                { q: 'Para que serve um mapa em logística?', options: ['Planejamento de rotas', 'Contagem de estoque', 'Gestão de equipe', 'Análise de vendas'], correct: 0 },
+                { q: 'Em administração, mapas podem ajudar em:', options: ['Estratégia de expansão', 'Controle de qualidade', 'Treinamento', 'Compras'], correct: 0 }
+            ]}
+        ];
+
+        let cards = [];
+        let flippedCards = [];
+        let matchedPairs = 0;
+        let score = 0;
+        let timeLeft = 120;
+        let timerInterval;
+
+        function createBoard() {
+            const board = document.getElementById("game-board");
+            board.innerHTML = "";
+            cards = [];
+            flippedCards = [];
+            matchedPairs = 0;
+            score = 0;
+            timeLeft = 120;
+
+            document.getElementById("score").textContent = score;
+            document.getElementById("timer").textContent = timeLeft;
+
+            themes.forEach(theme => {
+                for (let i = 0; i < 2; i++) {
+                    const card = document.createElement("div");
+                    card.classList.add("card");
+                    card.dataset.symbol = theme.symbol;
+                    card.dataset.name = theme.name;
+
+                    card.innerHTML = `
+                        <div class="card-front">?</div>
+                        <div class="card-back">
+                            <div class="icon">${theme.symbol}</div>
+                            <div class="label">${theme.name}</div>
+                        </div>
+                    `;
+
+                    card.addEventListener("click", flipCard);
+                    cards.push(card);
+                }
+            });
+
+            shuffle(cards);
+            cards.forEach(card => board.appendChild(card));
+
+            startTimer();
+        }
+
+        function shuffle(array) {
+            for (let pass = 0; pass < 5; pass++) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+            }
+        }
+
+        function flipCard() {
+            if (
+                flippedCards.length < 2 &&
+                !this.classList.contains("flipped") &&
+                !this.classList.contains("matched")
+            ) {
+                this.classList.add("flipped");
+                flippedCards.push(this);
+
+                if (flippedCards.length === 2) {
+                    setTimeout(checkMatch, 800);
+                }
+            }
+        }
+
+        function checkMatch() {
+            const [card1, card2] = flippedCards;
+
+            if (card1.dataset.symbol === card2.dataset.symbol) {
+                showQuiz(card1.dataset.name);
+            } else {
+                card1.classList.remove("flipped");
+                card2.classList.remove("flipped");
+                score -= 5;
+                updateScore();
+                flippedCards = [];
+                checkGameOver();
+            }
+        }
+
+        function showQuiz(themeName) {
+            clearInterval(timerInterval);
+
+            const theme = themes.find(t => t.name === themeName);
+            const question = theme.questions[Math.floor(Math.random() * theme.questions.length)];
+
+            document.getElementById("quiz-question").textContent = question.q;
+
+            const optionsDiv = document.getElementById("quiz-options");
+            optionsDiv.innerHTML = "";
+
+            question.options.forEach((option, index) => {
+                const optionDiv = document.createElement("div");
+                optionDiv.classList.add("quiz-option");
+                optionDiv.textContent = option;
+                optionDiv.addEventListener("click", () =>
+                    answerQuiz(index === question.correct, themeName)
+                );
+                optionsDiv.appendChild(optionDiv);
+            });
+
+            document.getElementById("quiz-modal").style.display = "flex";
+        }
+
+        function answerQuiz(correct, themeName) {
+            document.getElementById("quiz-modal").style.display = "none";
+
+            if (correct) {
+                flippedCards.forEach(card => card.classList.add("matched"));
+                matchedPairs++;
+                score += 10;
+                updateScore();
+
+                if (matchedPairs === themes.length) {
+                    clearInterval(timerInterval);
+                    showWinModal();
+                }
+            } else {
+                flippedCards.forEach(card => card.classList.remove("flipped"));
+                score -= 10;
+                updateScore();
+                checkGameOver();
+            }
+
+            flippedCards = [];
+
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById("timer").textContent = timeLeft;
+
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    showLoseModal();
+                }
+            }, 1000);
+        }
+
+        function updateScore() {
+            document.getElementById("score").textContent = score;
+        }
+
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById("timer").textContent = timeLeft;
+
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    showLoseModal();
+                }
+            }, 1000);
+        }
+
+        function checkGameOver() {
+            if (score <= -100) {
+                clearInterval(timerInterval);
+                showLoseModal();
+            }
+        }
+
+        function showWinModal() {
+            document.getElementById("final-score").textContent = score;
+            document.getElementById("final-time").textContent = timeLeft;
+            document.getElementById("win-modal").style.display = "flex";
+            launchConfetti();
+        }
+
+        function showLoseModal() {
+            document.getElementById("lose-modal").style.display = "flex";
+        }
+
+        function restartGame() {
+            document.getElementById("win-modal").style.display = "none";
+            document.getElementById("lose-modal").style.display = "none";
+            clearConfetti();
+            createBoard();
+        }
+
+        function launchConfetti() {
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement("div");
+                confetti.classList.add("confetti");
+                confetti.style.left = Math.random() * 100 + "vw";
+                confetti.style.animationDelay = Math.random() * 3 + "s";
+                confetti.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                document.body.appendChild(confetti);
+            }
+        }
+
+        function clearConfetti() {
+            document.querySelectorAll(".confetti").forEach(c => c.remove());
+        }
+
+        createBoard();
+    </script>
+
+<script src="JS/themes.js"></script>
+
+</body>
+
+</html>

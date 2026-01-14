@@ -1,0 +1,917 @@
+/* =====================================================
+   DALTÔNICO + TEMA CLARO - DevCore (LIMPO)
+   ===================================================== */
+
+/* =========================
+   BASE
+   ========================= */
+
+body.daltonic:not(.dark) {
+    background-color: #f3f3f7;
+    color: #111;
+}
+
+/* =========================
+   HEADER
+   ========================= */
+
+body.daltonic:not(.dark) header {
+    background-color: #fff;
+    color: #111;
+}
+
+body.daltonic:not(.dark) .subtitulo-logo h1 {
+    color: #ff00ff !important;
+}
+
+body.daltonic:not(.dark) .subtitulo-logo h1 span {
+    color: #111;
+}
+
+body.daltonic:not(.dark) .navbar a {
+    color: #111;
+}
+
+body.daltonic:not(.dark) .navbar a:hover,
+body.daltonic:not(.dark) .navbar a.active {
+    color: #ff00ff;
+}
+
+body.daltonic:not(.dark) .navbar a::after {
+    background-color: #ff00ff;
+}
+
+body.daltonic:not(.dark) .login-icon,
+body.daltonic:not(.dark) .login-icon i {
+    color: #ff00ff !important;
+}
+
+/* Foto de perfil */
+body.daltonic:not(.dark) .profile-container img {
+
+    border: 2px solid #ff00ff !important;
+}
+
+/* =========================
+   MENU DE ACESSIBILIDADE
+   ========================= */
+
+body.daltonic:not(.dark) .accessibility-menu {
+    background-color: #fff;
+}
+
+body.daltonic:not(.dark) .accessibility-menu .toggle-btn {
+    background-color: #ff00ff;
+    color: #fff;
+}
+
+/* =========================
+   HERO
+   ========================= */
+
+body.daltonic:not(.dark) .hero {
+    background-color: #f3f3f7;
+    color: #111;
+}
+
+body.daltonic:not(.dark) .hero h1 span {
+    color: #ff00ff;
+}
+
+body.daltonic:not(.dark) .hero-text p {
+    color: #222;
+}
+
+body.daltonic:not(.dark) .hero .buttons .btn-primary {
+    background-color: #ff00ff;
+    color: #000;
+}
+
+body.daltonic:not(.dark) .hero .buttons .btn-secondary {
+    background-color: #00ffff;
+    color: #111;
+    border: none;
+}
+
+body.daltonic:not(.dark) .hero .tags span {
+    background-color: #00ffff;
+    color: #111;
+    font-weight: 500;
+}
+
+body.daltonic:not(.dark) .hero .tags span.highlight {
+    background-color: #ff00ff;
+    color: #000;
+    font-weight: 500;
+}
+
+body.daltonic:not(.dark) .join {
+    background-color: #ff00ff;
+    color: #000;
+}
+
+/* =========================
+   TÍTULOS
+   ========================= */
+
+body.daltonic:not(.dark) .section-title,
+body.daltonic:not(.dark) .section-title-1 {
+    color: #111;
+}
+
+body.daltonic:not(.dark) .section-title::after,
+body.daltonic:not(.dark) .section-title-1::after {
+    background-color: #ff00ff;
+}
+
+/* =========================
+   CARDS
+   ========================= */
+
+body.daltonic:not(.dark) .card,
+body.daltonic:not(.dark) .team-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    color: #111 !important;
+}
+
+body.daltonic:not(.dark) .card h3 {
+    color: #111;
+}
+
+body.daltonic:not(.dark) .team-card  p{
+  color: #222;
+}
+
+body.daltonic:not(.dark) .card:hover .icon {
+  background: #5fffff !important;
+  transform: scale(1.08);
+}
+
+body.daltonic:not(.dark) .card a {
+    color: #ff00ff;
+}
+
+/* Hover acessível */
+body.daltonic:not(.dark) .card:hover,
+body.daltonic:not(.dark) .team-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 18px rgba(119, 119, 119, 0.25);
+}
+
+/* =========================
+   TEAM
+   ========================= */
+
+body.daltonic:not(.dark) .team-card-header {
+    background: linear-gradient(135deg, #ff00ff, #00ffff);
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+
+
+
+body.daltonic:not(.dark) footer h3,
+body.daltonic:not(.dark) footer h4 {
+    color: #ff00ff !important;
+    font-family: 'Poppins', sans-serif; 
+}
+
+body.daltonic:not(.dark) .footer-center button {
+    background-color: #ff00ff !important;
+    color: #000;
+    font-weight: 500;
+}
+
+body.daltonic:not(.dark) footer p a {
+    color: #00ffff;
+    text-decoration: none;
+}
+
+body.daltonic:not(.dark) footer ul li a:hover {
+    color: #ff00ff;
+    text-decoration: underline;
+}
+
+body.daltonic:not(.dark) .subtitulo-footer h1 {
+    color: #ff00ff !important;
+}
+
+/* =====================================================
+   PÁGINA: NOSSOS JOGOS
+   ===================================================== */
+
+body.daltonic:not(.dark).page-jogos .staff-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    color: #111;
+}
+
+body.daltonic:not(.dark).page-jogos .staff-info h3 {
+    color: #111;
+}
+
+body.daltonic:not(.dark).page-jogos .staff-role {
+    color: #ff00ff;
+}
+
+body.daltonic:not(.dark).page-jogos .staff-desc {
+    color: #333;
+}
+
+body.daltonic:not(.dark).page-jogos .btn-play {
+    background-color: #ff00ff;
+    color: #000;
+}
+
+body.daltonic:not(.dark).page-jogos .btn-play i {
+    color: #ffc107 !important;
+  
+}
+
+body.daltonic:not(.dark).page-jogos .btn-agendar {
+    background-color: transparent;
+    border: 2px solid #ffc107;
+    color: #111;
+}
+
+body.daltonic:not(.dark).page-jogos  .filter-btn{
+  color: #ff00ff;
+  background-color: transparent;
+  border: 2px solid #ff00ff;
+}
+
+body.daltonic:not(.dark).page-jogos .filter-btn.active{
+  background-color: #ff00ff;
+  color: #000;
+}
+
+
+body.daltonic:not(.dark).page-jogos .btn-agendar:hover {
+  background: #ffc107 !important;
+  color: #000;
+}
+/* =====================================================
+   DALTÔNICO + TEMA CLARO — QUEM SOMOS
+   ===================================================== */
+
+body.daltonic:not(.dark).page-quem-somos {
+  background-color: #f3f3f7;
+  color: #111;
+}
+
+/* =========================
+   VARIÁVEIS SOBRESCRITAS
+   ========================= */
+
+body.daltonic:not(.dark).page-quem-somos {
+  --surface: #ffffff;
+  --bg: #f3f3f7;
+  --text: #111111;
+  --muted: #444444;
+
+  --accent-1: #ff00ff; /* magenta */
+  --accent-2: #; /* ciano */
+
+  --glass: rgba(255, 255, 255, 0.7);
+}
+
+/* =========================
+   BLOCOS GLASS
+   ========================= */
+
+body.daltonic:not(.dark).page-quem-somos .section-block {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.9),
+    rgba(245, 245, 250, 0.85)
+  );
+  backdrop-filter: blur(12px) saturate(1.05);
+  box-shadow:
+    0 20px 50px rgba(80, 80, 80, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+/* Glow */
+body.daltonic:not(.dark).page-quem-somos .section-block::before {
+  opacity: 0.25;
+}
+
+/* =========================
+   TEXTO
+   ========================= */
+
+body.daltonic:not(.dark).page-quem-somos .headline {
+  color: #111;
+}
+
+body.daltonic:not(.dark).page-quem-somos .lead {
+  color: #333;
+}
+
+body.daltonic:not(.dark).page-quem-somos h2 {
+  color: #111;
+}
+
+body.daltonic:not(.dark).page-quem-somos .muted {
+  color: #555;
+}
+
+/* =========================
+   BOTÕES
+   ========================= */
+
+body.daltonic:not(.dark).page-quem-somos .btn {
+  background: #ffc107;
+  color: #000;
+}
+
+body.daltonic:not(.dark).page-quem-somos .btn.ghost {
+  background: transparent;
+  color: #ff00ff;
+  border: 2px solid rgba(255, 0, 255, 0.4);
+}
+
+/* =========================
+   STATS
+   ========================= */
+
+body.daltonic:not(.dark).page-quem-somos .stat {
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+body.daltonic:not(.dark).page-quem-somos .stat span {
+  color: #444;
+}
+
+/* =========================
+   CARDS
+   ========================= */
+
+body.daltonic:not(.dark).page-quem-somos .card,
+body.daltonic:not(.dark).page-quem-somos .how-card,
+body.daltonic:not(.dark).page-quem-somos aside .card {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+body.daltonic:not(.dark).page-quem-somos .card h3 {
+  color: #ff00ff;
+}
+
+body.daltonic:not(.dark).page-quem-somos .card p {
+  color: #333;
+}
+
+/* =========================
+   PILLS / TECH
+   ========================= */
+
+body.daltonic:not(.dark).page-quem-somos .pill-list span {
+  background: rgba(255, 0, 255, 0.12);
+  color: #ff00ff;
+}
+
+body.daltonic:not(.dark).page-quem-somos .tech-grid span {
+  background: #fafafa;
+  border: 1px solid #ddd;
+  color: #333;
+}
+
+/* =========================
+   TIMELINE
+   ========================= */
+
+body.daltonic:not(.dark).page-quem-somos .timeline-list {
+  border-left-color: #ff00ff;
+}
+
+body.daltonic:not(.dark).page-quem-somos .timeline-list li::before {
+  background: #ff00ff;
+  border-color: #fff;
+}
+
+/* =========================
+   ORBS
+   ========================= */
+
+body.daltonic:not(.dark).page-quem-somos .orb {
+  opacity: 0.4;
+}
+
+/* =========================
+   MENU DE ACESSIBILIDADE
+   ========================= */
+
+body.daltonic:not(.dark).page-quem-somos .accessibility-menu {
+  background: #ffffff;
+}
+
+body.daltonic:not(.dark).page-quem-somos .accessibility-menu .icons button {
+  color: #111;
+}
+
+body.daltonic:not(.dark).page-quem-somos .accessibility-menu .toggle-btn {
+  background: #ff00ff;
+  color: #fff;
+}
+
+/* ===================== H4 DO CARD FUTURO ===================== */
+.card.future h4 {
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--accent-1);
+
+  margin-bottom: 12px;
+
+  letter-spacing: 0.3px;
+
+  position: relative;
+}
+
+/* detalhe visual abaixo do título */
+.card.future h4::after {
+  content: "";
+  display: block;
+
+  width: 40px;
+  height: 3px;
+
+  background: linear-gradient(
+    90deg,
+    var(--accent-1),
+    var(--accent-2)
+  );
+
+  margin-top: 6px;
+  border-radius: 2px;
+}
+
+.card h4 {
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--accent-1);
+
+  margin-bottom: 12px;
+
+  letter-spacing: 0.3px;
+
+  position: relative;
+}
+
+/* ===================== H4 DO CARD FUTURO ===================== */
+.card.future h4 {
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--accent-1);
+
+  margin-bottom: 12px;
+
+  letter-spacing: 0.3px;
+
+  position: relative;
+}
+
+/* detalhe visual abaixo do título */
+.card.future h4::after {
+  content: "";
+  display: block;
+
+  width: 40px;
+  height: 3px;
+
+  background: linear-gradient(
+    90deg,
+    var(--accent-1),
+    var(--accent-2)
+  );
+
+  margin-top: 6px;
+  border-radius: 2px;
+}
+
+/* =====================================================
+   TEMA: CLARO DALTÔNICO — CAÇA-PALAVRAS | DevCore
+   body.page-quem-palavras.daltonic:not(.dark)
+   ===================================================== */
+
+body.page-quem-palavras.daltonic:not(.dark) {
+  background-color: #f3f3f7;
+  color: #111;
+}
+
+/* ================= TÍTULOS ================= */
+
+body.page-quem-palavras.daltonic:not(.dark) h1,
+body.page-quem-palavras.daltonic:not(.dark) h2 {
+  color: #111;
+}
+
+/* ================= GRID ================= */
+
+body.page-quem-palavras.daltonic:not(.dark) #grid-container {
+  background-color: #ffffff;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+}
+
+/* ================= CÉLULAS ================= */
+
+body.page-quem-palavras.daltonic:not(.dark) .cell {
+  background-color: #ffffff;
+  color: #111;
+  border: 2px solid #ddd;
+  font-weight: 700;
+}
+
+/* Hover acessível */
+body.page-quem-palavras.daltonic:not(.dark) .cell:hover {
+  background-color: #5fffff; /* ciano claro */
+}
+
+/* Selecionada — magenta */
+body.page-quem-palavras.daltonic:not(.dark) .cell.selected {
+  background-color: #ff00ff;
+  color: #000;
+  border-color: #ff00ff;
+}
+
+
+
+/* ================= LISTA DE PALAVRAS ================= */
+
+body.page-quem-palavras.daltonic:not(.dark) .words-box {
+  background-color: #ffffff;
+  border: 2px solid #ff00ff;
+}
+
+body.page-quem-palavras.daltonic:not(.dark) .word-item {
+  color: #111;
+}
+
+body.page-quem-palavras.daltonic:not(.dark) .word-item.found {
+  background-color: #00ffff;
+  color: #111;
+}
+
+/* ================= BOTÕES ================= */
+
+body.page-quem-palavras.daltonic:not(.dark) button {
+  background-color: #ff00ff;
+  color: #000;
+  font-weight: 500;
+}
+
+body.page-quem-palavras.daltonic:not(.dark) button.secondary {
+  background-color: #ffc107;
+  color: #111;
+}
+
+/* ================= MODAL ================= */
+
+body.page-quem-palavras.daltonic:not(.dark) #victory-modal {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+body.page-quem-palavras.daltonic:not(.dark) .modal-content {
+  background-color: #ffffff;
+  color: #111;
+}
+
+body.page-quem-palavras.daltonic:not(.dark) .cell.found {
+  background-color: #00ffff !important;
+  color: #000 !important;
+  border-color: #b5b5b5;
+
+}
+
+body.page-quem-palavras.daltonic:not(.dark) .cell.hint-anim{
+  background-color: #ff00ff !important;
+}
+
+body.page-quem-palavras.daltonic:not(.dark) h3{
+  color: black !important;
+}
+
+
+/* =====================================================
+   DALTÔNICO CLARO — PAGE LOJA
+   Escopo: body.page-loja.daltonic:not(.dark)
+   ===================================================== */
+
+body.page-loja.daltonic:not(.dark) {
+  background: #f3f4f6;
+  
+}
+
+/* ================= RESET ================= */
+
+body.page-loja.daltonic:not(.dark) * {
+  color: inherit;
+}
+
+/* ================= TÍTULOS ================= */
+
+body.page-loja.daltonic:not(.dark) main h1,
+body.page-loja.daltonic:not(.dark) .virtual h1,
+body.page-loja.daltonic:not(.dark) #game-area h1 {
+  color: #ff00ff;
+}
+
+/* ================= TEXTO ================= */
+
+body.page-loja.daltonic:not(.dark) main p {
+  color: #1f2937;
+}
+
+/* ================= ÁREA DO JOGO ================= */
+
+body.page-loja.daltonic:not(.dark) #game-area {
+  background: #ffffff;
+  border: 3px solid #ff00ff;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* ================= NARRATIVA ================= */
+
+body.page-loja.daltonic:not(.dark) #narrative {
+  background: #f9fafb;
+  color: #111827;
+  border-left: 5px solid #ff00ff;
+}
+
+/* Vitória — clara (sem verde) */
+body.page-loja.daltonic:not(.dark) #narrative.win {
+  background: linear-gradient(45deg, #e0f7fa, #ffffff);
+  border-left-color: #00ffff;
+  color: #111827;
+  animation: winPulseDaltonicLight 1s ease-in-out infinite alternate;
+}
+
+@keyframes winPulseDaltonicLight {
+  from { box-shadow: 0 0 15px rgba(0, 255, 255, 0.35); }
+  to   { box-shadow: 0 0 25px rgba(0, 255, 255, 0.6); }
+}
+
+/* Derrota — clara (sem vermelho) */
+body.page-loja.daltonic:not(.dark) #narrative.lose {
+  background: linear-gradient(45deg, #fde7f3, #ffffff);
+  border-left-color: #ff00ff;
+  color: #111827;
+}
+
+/* ================= STATS ================= */
+
+body.page-loja.daltonic:not(.dark) .stat {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  color: #111827;
+}
+
+body.page-loja.daltonic:not(.dark) .stat:hover {
+  transform: scale(1.05);
+}
+
+/* ================= OPÇÕES ================= */
+
+body.page-loja.daltonic:not(.dark) .option-card {
+  background: #ffffff;
+  border: 2px solid #ff00ff;
+  color: #111827;
+}
+
+body.page-loja.daltonic:not(.dark) .option-card::before {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 255, 255, 0.25),
+    transparent
+  );
+}
+
+body.page-loja.daltonic:not(.dark) .option-card:hover {
+  background: #f0fdff;
+  box-shadow: 0 10px 20px rgba(0, 255, 255, 0.25);
+}
+
+body.page-loja.daltonic:not(.dark) .option-card h3 {
+  color: #ff00ff;
+}
+
+body.page-loja.daltonic:not(.dark) .option-card p {
+  color: #374151;
+}
+
+/* ================= MODAL ================= */
+
+body.page-loja.daltonic:not(.dark) #modal {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+body.page-loja.daltonic:not(.dark) #modal-content {
+  background: #ffffff;
+  color: #111827;
+  border: 2px solid #00ffff;
+}
+
+body.page-loja.daltonic:not(.dark) #modal-content h3 {
+  color: #ff00ff;
+}
+
+body.page-loja.daltonic:not(.dark) #modal-content li {
+  background: #f3f4f6;
+}
+
+/* ================= BOTÕES ================= */
+
+body.page-loja.daltonic:not(.dark) button {
+  background: #ff00ff;
+  color: #000;
+}
+
+body.page-loja.daltonic:not(.dark) button:hover {
+  background: #00ffff;
+  color: #000;
+}
+
+/* Botões do modal */
+body.page-loja.daltonic:not(.dark) #modal-content button {
+  background: #ffc107;
+  color: #000;
+}
+
+body.page-loja.daltonic:not(.dark) #modal-content button:hover {
+  background: #ff00ff;
+  color: #000;
+}
+
+/* ================= CONFETTI ================= */
+
+body.page-loja.daltonic:not(.dark) .confetti {
+  background: #00ffff;
+}
+
+body.page-loja.daltonic:not(.dark) .confetti:nth-child(2n) {
+  background: #ff00ff;
+}
+
+body.page-loja.daltonic:not(.dark) .confetti:nth-child(3n) {
+  background: #ffc107;
+}
+
+body.page-loja.daltonic:not(.dark) .confetti:nth-child(4n) {
+  background: #9ecbff;
+}
+
+body.page-loja.daltonic:not(.dark) .confetti:nth-child(5n) {
+  background: #5fffff;
+}
+
+/* ================= RESPONSIVO ================= */
+
+@media (max-width: 768px) {
+  body.page-loja.daltonic:not(.dark) h1 {
+    font-size: 2em;
+  }
+}
+
+body.page-loja.daltonic:not(.dark) .footer h3,
+body.page-loja.daltonic:not(.dark) .footer h4{
+  color: #ff00ff !important;
+
+}
+
+/* =========================
+   FOOTER — COR DO TEXTO <p>
+   ========================= */
+
+/* =========================
+   FOOTER
+   ========================= */
+
+body.page-loja.daltonic:not(.dark) footer {
+    background-color: #000;
+    color: #fff;
+}
+
+body.page-loja.daltonic:not(.dark) .subtitulo-footer h1 {
+    color: #ff00ff !important;
+}
+
+body.page-loja.daltonic:not(.dark) footer h3,
+body.page-loja.daltonic:not(.dark) footer h4 {
+    color: #ff00ff !important;
+}
+
+body.page-loja.daltonic:not(.dark) .footer-center button {
+    background-color: #ff00ff;
+    color: #000;
+    font-weight: 500;
+}
+
+body.page-loja.daltonic:not(.dark) .footer-center input {
+    background-color: #333;
+    color: #fff;
+}
+
+body.page-loja.daltonic:not(.dark) footer p a {
+    color: #00ffff !important;
+    text-decoration: none;
+}
+
+body.page-loja.daltonic:not(.dark) footer ul li a:hover {
+    color: #ff00ff;
+    text-decoration: underline;
+}
+
+
+/* =================================================
+   CHATBOT — TEMA DALTÔNICO CLARO
+   ================================================= */
+
+/* ================= BOTÃO FLUTUANTE ================= */
+body.daltonic:not(.dark) .chatbot-btn {
+    background-color: transparent;
+    border: 3px solid #ffc107; /* azul acessível */
+    box-shadow: 0 0 0 2px #fff;
+}
+
+body.daltonic:not(.dark) .chatbot-btn:hover {
+    background-color: transparent;
+}
+
+body.daltonic:not(.dark) .chatbot-btn img {
+    filter: none;
+}
+
+/* ================= CONTAINER DO CHAT ================= */
+body.daltonic:not(.dark) .chat-container-mini {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+/* ================= CABEÇALHO ================= */
+body.daltonic:not(.dark) .chat-header {
+    background-color: #f2f2f2;
+    color: black !important; 
+    border-bottom: 1px solid #ccc;
+}
+
+/* ================= ÁREA DE MENSAGENS ================= */
+body.daltonic:not(.dark) .chat-box {
+    background-color: #ffffff;
+}
+
+/* ================= MENSAGENS ================= */
+body.daltonic:not(.dark) .message {
+    font-size: 0.83rem;
+}
+
+/* BOT */
+body.daltonic:not(.dark) .bot-message {
+    background-color: #f0f0f0;
+    color: #000000;
+    border-left: 4px solid #00ffff;
+}
+
+/* USUÁRIO */
+body.daltonic:not(.dark) .user-message {
+    background-color: #ff00ff; /* amarelo acessível */
+    color: #000;
+   
+}
+
+/* ================= INPUT ================= */
+body.daltonic:not(.dark) .input-container {
+    background-color: #ffffff;
+    border-top: 1px solid #ccc;
+}
+
+body.daltonic:not(.dark) .input-container input {
+    background-color: #f9f9f9;
+    color: #000;
+    border: 1px solid #ff00ff;
+}
+
+body.daltonic:not(.dark) .input-container input::placeholder {
+    color: #666;
+}
+
+body.daltonic:not(.dark) .input-container input:focus {
+    border-color: #00ffff;
+}
+
+/* ================= BOTÃO ENVIAR ================= */
+body.daltonic:not(.dark) .input-container button {
+    color: #ff00ff;
+}
+
+body.daltonic:not(.dark) .input-container button:hover {
+    color: #ff00ff;
+}

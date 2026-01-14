@@ -1,0 +1,194 @@
+footer {
+  background-color: #000;
+  color: #fff;
+  padding: 40px 0;
+  font-family: "DM Sans", sans-serif;
+  text-decoration: none;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.footer-left,
+.footer-center,
+.footer-right {
+  width: 30%;
+}
+
+.footer h3,
+h4 {
+  margin-bottom: 15px;
+  color: #bd467f; 
+}
+
+.social-links {
+  display: flex;
+  gap: 25px;
+}
+
+.social-icon {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-center input {
+  padding: 10px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 4px;
+  width: 70%;
+  font-family: "DM Sans", sans-serif;
+}
+
+.footer-center button {
+  padding: 10px;
+  background-color: #bd467f;
+  border: none;
+  border-radius: 4px;
+  color: black;
+  cursor: pointer;
+  font-family: "DM Sans", sans-serif;
+}
+
+.footer-center button:hover {
+  background-color: #ddacfb;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  text-decoration: none;
+}
+
+ul li {
+  margin: 5px 0;
+}
+
+ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+ul li a:hover {
+  text-decoration: underline;
+  color: #bd467f;
+}
+
+footer .social-links a:hover,
+footer .footer-center button:hover {
+  opacity: 0.8;
+}
+
+/* Flexbox layout para organizar Sobre e Atendimento lado a lado */
+.footer-right {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.footer-info,
+.footer-contact {
+  width: 48%;
+}
+
+.social-links {
+  display: flex;
+  gap: 10px;
+}
+
+.social-icon img {
+  width: 40px;
+  /* Ajuste o tamanho das imagens conforme necessário */
+  height: auto;
+  transition: transform 0.3s ease;
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+
+.social-icon:hover img {
+  transform: scale(1.1);
+  /* Um pequeno efeito de zoom quando o ícone é hover */
+}
+
+.logo-empresa {
+  max-width: 40px;
+  /* Ajuste o tamanho da logo conforme necessário */
+  height: auto;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  padding-top: 15px;
+}
+
+p a {
+  color: #ddacfb;
+  text-decoration: none;
+}
+
+.left-footer {
+  display: flex;
+  align-items: center;
+  /* centraliza verticalmente logo e texto */
+  gap: 10px;
+  /* espaço entre logo e texto */
+}
+
+.subtitulo-footer {
+  display: flex;
+  flex-direction: column;
+  /* título e subtítulo empilhados */
+  line-height: 1.1;
+}
+
+.subtitulo-footer h1 {
+  font-size: 1.8rem;
+  color: #bd467f;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  margin: 0;
+}
+
+.subtitulo-footer h1 span {
+  color: white !important;
+}
+
+.subtitulo-footer p {
+  font-size: 0.8rem;
+  color: rgb(200, 200, 200);
+  margin-top: -1px;
+}
+
+/* ==== CORREÇÃO SEM ALTERAR DESIGN ==== */
+
+/* evita estouro das colunas */
+.footer-left,
+.footer-center,
+.footer-right,
+.footer-info,
+.footer-contact {
+  min-width: 0;
+}
+
+/* força quebra correta de textos longos */
+.footer-contact li {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+/* evita scroll horizontal invisível */
+footer {
+  overflow-x: hidden;
+}
+
+.footer-center p,
+.footer-right p,
+.footer-right li {
+  font-size: 16px;
+}

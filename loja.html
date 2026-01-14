@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja Virtual Manager - Jogo de Administração</title>
+      <!-- Favicon -->
+  <link rel="shortcut icon" href="img/logo.png">
+    <link rel="stylesheet" href="css/header.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+   <link rel="stylesheet" href="css/dark-theme.css" />
+    <link rel="stylesheet" href="css/daltonic-theme-dark.css" />
+     <link rel="stylesheet" href="css/daltonic-theme.css" />
+
+    <!-- IMPORTA O JS DO HEADER -->
+  <script src="JS/header.js"></script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+
+        html {
+  scroll-behavior: smooth;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  text-decoration: none;
+  list-style: none;
+}
+
+        body {
+             font-family: 'Poppins', sans-serif;
+            background: #f3f3f7;
+            color: #333;
+            margin: 0;
+            
+         
+          
+        }
+        @keyframes backgroundShift {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+main h1,
+.virtual h1,
+#game-area h1 {
+  color: #bd467f;
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+        main p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+        #game-area {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #ffffff;
+            border: 3px solid #bd467f;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(5px);
+            position: relative;
+            overflow: hidden;
+        }
+        #narrative {
+            font-size: 1.3em;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            min-height: 60px;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 5px solid #bd467f;
+            transition: all 0.5s ease;
+        }
+        #narrative.win {
+            background: linear-gradient(45deg, #d4edda, #c3e6cb);
+            border-left-color: #28a745;
+            color: #155724;
+            animation: winPulse 1s ease-in-out infinite alternate;
+        }
+        @keyframes winPulse {
+            from { box-shadow: 0 0 20px rgba(40, 167, 69, 0.5); }
+            to { box-shadow: 0 0 30px rgba(40, 167, 69, 0.8); }
+        }
+        #narrative.lose {
+            background: linear-gradient(45deg, #f8d7da, #f5c6cb);
+            border-left-color: #dc3545;
+            color: #721c24;
+            animation: loseShake 0.5s ease-in-out;
+        }
+        @keyframes loseShake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+        #stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+        .stat {
+            background: linear-gradient(45deg, #e3f2fd, #bbdefb);
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+        .stat:hover {
+            transform: scale(1.05);
+        }
+        #options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .option-card {
+            background: linear-gradient(45deg, #ffffff, #f8f9fa);
+            border: 2px solid #bd467f;
+            border-radius: 15px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .option-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(164, 73, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        .option-card:hover::before {
+            left: 100%;
+        }
+        .option-card:hover {
+            background: linear-gradient(45deg, #e3f2fd, #bbdefb);
+            transform: translateY(-8px) rotate(1deg);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+        .option-card h3 {
+            margin: 0 0 10px 0;
+            color: #bd467f;
+            font-size: 1.2em;
+        }
+        .option-card p {
+            margin: 0;
+            font-size: 0.95em;
+            color: #555;
+        }
+        .option-card .icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        #modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            animation: fadeIn 0.3s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        #modal-content {
+            background: #fff;
+            padding: 25px;
+            border-radius: 15px;
+            max-width: 550px;
+            width: 90%;
+            text-align: left;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: slideIn 0.3s ease;
+        }
+        @keyframes slideIn {
+            from { transform: scale(0.9); }
+            to { transform: scale(1); }
+        }
+        #modal-content h3 {
+            margin-top: 0;
+            color:#bd467f;
+        }
+        #modal-content ul {
+            list-style: none;
+            padding: 0;
+        }
+        #modal-content li {
+            margin-bottom: 12px;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        #modal-content button {
+            margin: 5px;
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+             font-family: 'Poppins', sans-serif;
+        }
+        #modal-content button:hover {
+            background: #218838;
+        }
+        #restart {
+            display: none;
+            margin-top: 25px;
+        }
+        button {
+            background: #bd467f;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            font-size: 1.1em;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        button:hover {
+            background: #98255c;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Confetes para vitória */
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #ff6b6b;
+            animation: fall 3s linear infinite;
+            pointer-events: none;
+        }
+        .confetti:nth-child(2n) {
+            background: #4ecdc4;
+            animation-duration: 2.5s;
+        }
+        .confetti:nth-child(3n) {
+            background: #45b7d1;
+            animation-duration: 3.5s;
+        }
+        .confetti:nth-child(4n) {
+            background: #f9ca24;
+            animation-duration: 2s;
+        }
+        .confetti:nth-child(5n) {
+            background: #f0932b;
+            animation-duration: 4s;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-100vh) rotate(0deg); }
+            100% { transform: translateY(100vh) rotate(360deg); }
+        }
+        @media (max-width: 768px) {
+            #options {
+                grid-template-columns: 1fr;
+            }
+            #stats {
+                grid-template-columns: 1fr;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            .option-card {
+                padding: 15px;
+            }
+        }
+/* Centraliza a div virtual */
+.virtual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 40px 0; /* Ajusta o espaçamento superior e inferior */
+}
+
+.section-title-1,
+.section-title {
+  text-align: center;
+  margin-bottom: 50px;
+  margin-top: 20px;
+  font-size: 2.5rem;
+  color: black;
+  position: relative;
+  width: 100%;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+  padding-bottom: 20px;
+}
+
+/* Linha abaixo do título */
+.section-title-1::after,
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 4px;
+  background-color: #bd467f;
+  transition: width 0.3s ease;
+}
+
+/* Quando passa o mouse, a linha aparece maior */
+.section-title:hover::after,
+.section-title-1:hover::after {
+  width: 150px;
+}
+
+
+        
+    </style>
+</head>
+<body class="page-loja">
+  <!-- ================= HEADER ================= -->
+  <header>
+    <div class="left">
+      <a href="index.html" class="logo">
+        <img src="img/logo.png" alt="Logo DevCore" class="logo-img">
+      </a>
+      <div class="subtitulo-logo">
+        <h1>Dev <span>Core</span></h1>
+        <p>Jogos de Administração</p>
+      </div>
+    </div>
+
+    <nav class="navbar">
+      <a href="index.html">Home</a>
+      <a href="quem-somos.html">Quem Somos</a>
+      <a href="nossos-jogos.html"  class="active">Nossos Jogos</a>
+    </nav>
+
+    <div class="user-area">
+      <div class="profile-container" id="profileButton">
+        <!-- ÍCONE ORIGINAL -->
+        <i class="fa-solid fa-user-circle login-icon" id="profileIcon"></i>
+
+        <!-- NOME DO USUÁRIO (APARECE APÓS LOGIN) -->
+        <span id="profileName"></span>
+
+        <!-- SETINHA DO DROPDOWN (APARECE SOMENTE LOGADO) -->
+        <i class="fa-solid fa-caret-down" id="caretDropdown" style="display:none;"></i>
+      </div>
+
+      <!-- DROPDOWN -->
+      <div class="profile-dropdown" id="profileDropdown">
+        <a href="configurar-perfil.html">Configurar Perfil</a>
+        <a href="#" id="logoutBtn">Sair</a>
+      </div>
+    </div>
+  </header>
+  <br><br>
+
+  <!-- V-Libras -->
+<div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+    </div>
+</div>
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+<script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+</script>
+
+  <br><br>
+
+    <h2 class="section-title">Loja Virtual Finance</h2><br>
+    </div>
+    <br><br>
+    <div id="game-area">
+        <div id="confetti-container"></div>
+        <div id="narrative">Dia 1: Sua loja virtual está começando. Você tem R$ 1.000 em capital. Escolha sua primeira ação!</div>
+        <div id="stats">
+            <div class="stat">Dia: <span id="dia">1</span>/7</div>
+            <div class="stat">Capital: R$ <span id="capital">1000</span></div>
+            <div class="stat">Clientes: <span id="clientes">0</span></div>
+            <div class="stat">Funcionários: <span id="funcionarios">1</span></div>
+        </div>
+        <div id="options">
+            <div class="option-card" onclick="openModal('comprar')">
+                <div class="icon">🛍️</div>
+                <h3>Comprar Produtos</h3>
+                <p>Escolha produtos para estoque. Cuidado com o saldo!</p>
+            </div>
+            <div class="option-card" onclick="openModal('contratar')">
+                <div class="icon">👥</div>
+                <h3>Contratar Funcionário</h3>
+                <p>Adicione equipe. Defina nome e idade.</p>
+            </div>
+            <div class="option-card" onclick="openModal('marketing')">
+                <div class="icon">📢</div>
+                <h3>Fazer Marketing</h3>
+                <p>Divulgue sua loja. Veja o impacto.</p>
+            </div>
+            <div class="option-card" onclick="openModal('risco1')">
+                <div class="icon">🎲</div>
+                <h3>Investimento Arriscado 1</h3>
+                <p>Promoção especial: 50% chance de +R$ 500, -R$ 300. Pense bem!</p>
+            </div>
+            <div class="option-card" onclick="openModal('risco2')">
+                <div class="icon">💰</div>
+                <h3>Investimento Arriscado 2</h3>
+                <p>Desconto relâmpago: 40% chance de +R$ 800, -R$ 400. Alto risco!</p>
+            </div>
+            <div class="option-card" onclick="openModal('risco3')">
+                <div class="icon">🚀</div>
+                <h3>Investimento Arriscado 3</h3>
+                <p>Parceria explosiva: 30% chance de +R$ 1000, -R$ 500. Máxima emoção!</p>
+            </div>
+        </div>
+        <button id="restart" onclick="restartGame()">Reiniciar Jogo</button>
+    </div>
+
+    <div id="modal">
+        <div id="modal-content">
+            <span onclick="closeModal()" style="float:right; cursor:pointer; font-size:1.5em;">&times;</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+    <br><br><br><br>
+
+      <footer>
+    <div class="footer-container">
+      <div class="footer-left">
+        <!-- Logo e título lado a lado -->
+        <div class="left-footer">
+          <a href="#" class="logo">
+            <img src="img/logo.png" alt="DevCore" class="logo-empresa" />
+          </a>
+
+          <div class="subtitulo-footer">
+            <h1>Dev <span>Core</span></h1>
+            <p>Jogos de Administração</p>
+          </div>
+        </div>
+
+        <!-- Redes sociais -->
+        <div class="social-links">
+          <a href="#" class="social-icon facebook">
+            <img src="img/facebook icon.png" alt="Facebook" />
+          </a>
+          <a href="#" class="social-icon instagram">
+            <img src="img/instagram icon.png" alt="Instagram" />
+          </a>
+          <a href="#" class="social-icon linkedin">
+            <img src="img/linkedin icon.png" alt="LinkedIn" />
+          </a>
+          <a href="#" class="social-icon linkedin">
+            <img src="img/twitter.jpg" alt="LinkedIn" />
+          </a>
+          <a href="#" class="social-icon tiktok">
+            <img src="img/wtt.png" alt="WhatsApp" />
+          </a>
+        </div>
+
+        <!-- Pagamentos -->
+        <div class="payment-methods">
+        </div>
+      </div>
+
+      <div class="footer-center">
+        <h4>Assine nossa newsletter</h4>
+        <p>Seja o primeiro a descobrir novos jogos!!!</p>
+       
+        <form action="#">
+          <input type="email" placeholder="Digite seu E-mail:" />
+          <button type="submit">Inscrever</button>
+        </form>
+        <br />
+        <p>
+          Ao se inscrever, você está aceitando nossa
+          <a href="#">Política de Privacidade</a>
+        </p>
+      </div>
+
+      <div class="footer-right">
+        <div class="footer-info">
+          <h4>Sobre:</h4>
+          <ul>
+            <li><a href="quem-somos.html">Quem somos</a></li>
+            <li><a href="index.html">Home (Tela Inicial)</a></li>
+            <li><a href="nossos-jogos.html">Nossos Jogos</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Meios de Contato:</h4>
+          <ul>
+            <li>Email:suporte@devcore.com</li>
+            <li>WhatsApp: (11) 99999-9999</li>
+            <li>Central de atendimento</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © 2025 Dev Core | Desenvolvido por Yasmin Ferreira Possiano |
+      Quem domina o conhecimento, administra o futuro.
+    </div>
+  </footer>
+
+<script>
+let capital = 1000;
+let clientes = 0;
+let funcionarios = 1;
+let dia = 1;
+let gameOver = false;
+let investmentFailures = [];
+let produtosComprados = 0;
+let marketingFeito = 0;
+
+function updateStats() {
+    document.getElementById('dia').innerText = dia;
+    document.getElementById('capital').innerText = capital;
+    document.getElementById('clientes').innerText = clientes;
+    document.getElementById('funcionarios').innerText = funcionarios;
+}
+
+/* ================= MODAL ================= */
+
+function openModal(type) {
+    if (gameOver) return;
+
+    const modal = document.getElementById('modal');
+    const body = document.getElementById('modal-body');
+    modal.style.display = 'flex';
+
+    if (type === 'comprar') {
+        body.innerHTML = `
+            <h3>Comprar Produtos</h3>
+            <p>Seu saldo: R$ ${capital}</p>
+            <ul>
+                <li>Camiseta (R$ 50) - +10 clientes <button onclick="buyProduct(50, 10)">Comprar</button></li>
+                <li>Calça (R$ 100) - +20 clientes <button onclick="buyProduct(100, 20)">Comprar</button></li>
+                <li>Tênis (R$ 150) - +30 clientes <button onclick="buyProduct(150, 30)">Comprar</button></li>
+                <li>Jaqueta (R$ 200) - +40 clientes <button onclick="buyProduct(200, 40)">Comprar</button></li>
+            </ul>
+        `;
+    }
+
+    else if (type === 'contratar') {
+        body.innerHTML = `
+            <h3>Contratar Funcionário</h3>
+            <p>Seu saldo: R$ ${capital} (Custo: R$ 500)</p>
+            <label>Nome: <input id="nome" type="text"></label><br><br>
+            <label>Idade: <input id="idade" type="number" min="18" max="65"></label><br><br>
+            <button onclick="hireEmployee()">Contratar</button>
+        `;
+    }
+
+    else if (type === 'marketing') {
+        body.innerHTML = `
+            <h3>Fazer Marketing</h3>
+            <p>Seu saldo: R$ ${capital} (Custo: R$ 200)</p>
+            <button onclick="doMarketing()">Iniciar Divulgação</button>
+        `;
+    }
+
+    else if (type.startsWith('risco')) {
+        if (funcionarios <= 1) {
+            alert('Contrate pelo menos mais 1 funcionário para investir!');
+            closeModal();
+            return;
+        }
+
+        let config = {
+            risco1: { cost: 300, gain: 500, loss: 300, base: 0.5, title: 'Investimento Arriscado 1' },
+            risco2: { cost: 400, gain: 800, loss: 400, base: 0.4, title: 'Investimento Arriscado 2' },
+            risco3: { cost: 500, gain: 1000, loss: 500, base: 0.3, title: 'Investimento Arriscado 3' }
+        };
+
+        const r = config[type];
+        const chance = Math.min(
+            1,
+            r.base +
+            (funcionarios - 1) * 0.1 +
+            marketingFeito * 0.05 +
+            produtosComprados * 0.02
+        );
+
+        body.innerHTML = `
+            <h3>${r.title}</h3>
+            <p>Seu saldo: R$ ${capital} (Custo: R$ ${r.cost})</p>
+            <p>${(chance * 100).toFixed(0)}% chance de lucro | ${(100 - chance * 100).toFixed(0)}% risco</p>
+            <button onclick="riskInvestment(${r.cost}, ${r.gain}, ${r.loss}, ${chance}, '${r.title}')">
+                Investir
+            </button>
+        `;
+    }
+}
+
+function closeModal() {
+    document.getElementById('modal').style.display = 'none';
+}
+
+/* ================= AÇÕES ================= */
+
+function buyProduct(cost, gain) {
+    if (capital < cost) return alert('Saldo insuficiente!');
+    capital -= cost;
+    clientes += gain;
+    produtosComprados++;
+    closeModal();
+    nextDay();
+}
+
+function hireEmployee() {
+    const nome = document.getElementById('nome').value;
+    const idade = document.getElementById('idade').value;
+
+    if (capital >= 500 && nome && idade >= 18 && idade <= 65) {
+        capital -= 500;
+        funcionarios++;
+        closeModal();
+        nextDay();
+    } else {
+        alert('Dados inválidos ou saldo insuficiente!');
+    }
+}
+
+function doMarketing() {
+    if (capital < 200) return alert('Saldo insuficiente!');
+
+    capital -= 200;
+    marketingFeito++;
+
+    if (Math.random() > 0.4) {
+        clientes += Math.floor(Math.random() * 15) + 5;
+    }
+
+    closeModal();
+    nextDay();
+}
+
+/* ================= INVESTIMENTO (CORRIGIDO) ================= */
+
+function riskInvestment(cost, gain, loss, chance, name) {
+    if (capital < cost) return alert('Saldo insuficiente!');
+
+    const success = Math.random() < chance;
+
+    if (success) {
+        const lucroReal = gain - cost;
+        capital += lucroReal;
+        alert(`Investimento deu certo! Lucro de R$ ${lucroReal}.`);
+    } else {
+        capital -= loss;
+        investmentFailures.push(`Dia ${dia}: ${name} falhou (-R$ ${loss})`);
+        alert(`Investimento falhou! Perda de R$ ${loss}.`);
+    }
+
+    closeModal();
+    nextDay();
+}
+
+/* ================= PROGRESSÃO ================= */
+
+function nextDay() {
+    dia++;
+
+    if (dia <= 7) {
+        const lucro = clientes * 10 + funcionarios * 50;
+        capital += lucro;
+        document.getElementById('narrative').innerText =
+            `Dia ${dia}: Continue gerenciando. Saldo: R$ ${capital}.`;
+        updateStats();
+    } else {
+        checkWin();
+    }
+}
+
+/* ================= FIM DE JOGO ================= */
+
+function checkWin() {
+    const narrative = document.getElementById('narrative');
+    if (capital >= 5000 && clientes >= 50) {
+        narrative.innerText = '🎉 Parabéns! Você venceu o jogo!';
+        narrative.classList.add('win');
+    } else {
+        narrative.innerText = '💔 Você perdeu o jogo! Tente novamente.';
+        narrative.classList.add('lose');
+    }
+    gameOver = true;
+    document.getElementById('restart').style.display = 'block';
+}
+
+function restartGame() {
+    capital = 1000;
+    clientes = 0;
+    funcionarios = 1;
+    dia = 1;
+    gameOver = false;
+    investmentFailures = [];
+    produtosComprados = 0;
+    marketingFeito = 0;
+
+    updateStats();
+    document.getElementById('narrative').innerText =
+        'Dia 1: Sua loja virtual está começando.';
+    document.getElementById('narrative').classList.remove('win', 'lose');
+    document.getElementById('restart').style.display = 'none';
+}
+</script>
+
+
+    <script src="JS/themes.js"></script>
+</body>
+</html>

@@ -1,0 +1,273 @@
+/* ============================================================
+   style.css — Versão Final (Mario Grande + Blocos Grandes)
+   ============================================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Garante tela cheia e sem barras de rolagem */
+body, html {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto; /* Permite rolagem vertical */
+    overflow-x: hidden; /* Mantém sem rolagem horizontal */
+}
+
+
+.game-board {
+    width: 90%;              /* Reduz a largura do container */
+    max-width: 1200px;       /* Limita a largura máxima */
+    height: 80vh;            /* Reduz a altura em relação à tela */
+    border-bottom: 20px solid rgb(35, 160, 35);
+    margin: 20px auto;       /* Centraliza e adiciona espaçamento superior/inferior */
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(#87CEEB, #E0F6FF);
+    border-radius: 15px;     /* Opcional: deixa cantos arredondados */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2); /* Opcional: sombra suave */
+}
+
+
+/* ===========================
+   PERSONAGENS E CENÁRIO (TAMANHOS AUMENTADOS)
+   =========================== */
+
+.mario {
+    width: 220px; 
+    position: absolute;
+    bottom: 0;
+    left: 50px;
+    z-index: 10;
+}
+
+.pipe {
+    position: absolute;
+    bottom: 0;
+    width: 100px;
+    animation: pipe-animation 2s infinite linear;
+    animation-play-state: running;
+    z-index: 2;
+}
+
+.clouds {
+    position: absolute;
+    width: 550px;
+    animation: clouds-animation 20s infinite linear;
+    animation-play-state: running;
+    z-index: 1;
+}
+
+/* Animação de Pulo (Ajustada para o Mario Grande) */
+.jump {
+    animation: jump 600ms ease-out;
+}
+
+/* ===========================
+   BLOCOS (PERGUNTAS) - AGORA MAIORES
+   =========================== */
+
+/* 1. PREVER (Azul) */
+.bloco {
+    position: absolute;
+    bottom: 0;
+    width: 150px; /* Aumentado para 150px */
+    height: 150px;
+    right: -150px; /* Começa fora da tela */
+    animation: bloco-animation 30s infinite linear;
+    animation-delay: 2s; 
+    animation-play-state: running;
+    z-index: 5;
+}
+
+/* 2. ORGANIZAR (Vermelho) */
+.bloco2 {
+    position: absolute;
+    bottom: 0;
+    width: 150px;
+    height: 150px;
+    right: -150px;
+    animation: bloco-animation 30s infinite linear;
+    animation-delay: 9s; 
+    animation-play-state: running;
+    z-index: 5;
+}
+
+/* 3. PRODUZIR (Rosa) */
+.bloco3 {
+    position: absolute;
+    bottom: 0;
+    width: 150px;
+    height: 150px;
+    right: -150px;
+    animation: bloco-animation 30s infinite linear;
+    animation-delay: 18s; 
+    animation-play-state: running;
+    z-index: 5;
+}
+
+/* 4. ENTREGAR (Amarelo) */
+.bloco1 {
+    position: absolute;
+    bottom: 0;
+    width: 150px;
+    height: 150px;
+    right: -150px;
+    animation: bloco-animation 30s infinite linear;
+    animation-delay: 26s; 
+    animation-play-state: running;
+    z-index: 5;
+}
+
+/* ===========================
+   MOEDAS
+   =========================== */
+.moeda {
+    position: absolute;
+    width: 60px;
+    right: -60px;
+    animation: moeda-animation 6s infinite linear;
+    animation-play-state: running;
+    z-index: 4;
+}
+
+/* Alturas ajustadas para o pulo alto */
+#moeda1 { bottom: 250px; animation-delay: 0s; }
+#moeda2 { bottom: 300px; animation-delay: 1s; }
+#moeda3 { bottom: 180px; animation-delay: 5s; }
+#moeda4 { bottom: 250px; animation-delay: 10s; }
+#moeda5 { bottom: 300px; animation-delay: 15s; }
+#moeda6 { bottom: 180px; animation-delay: 22s; }
+#moeda7 { bottom: 250px; animation-delay: 28s; }
+
+
+/* ===========================
+   KEYFRAMES (ANIMAÇÕES)
+   =========================== */
+
+@keyframes bloco-animation {
+    0% { right: -150px; } /* Ajustado para esconder o bloco maior */
+    15% { right: 100%; }
+    100% { right: 100%; }
+}
+
+@keyframes pipe-animation {
+    from { right: -100px; }
+    to { right: 100%; }
+}
+
+@keyframes clouds-animation {
+    from { right: -550px; }
+    to { right: 100%; }
+}
+
+@keyframes moeda-animation {
+    from { right: -60px; }
+    to { right: 100%; }
+}
+
+/* PULO PARA DESKTOP */
+@keyframes jump {
+    0% { bottom: 0; }
+    40% { bottom: 260px; } /* Alto o suficiente para passar blocos e canos */
+    50% { bottom: 260px; }
+    60% { bottom: 260px; }
+    100% { bottom: 0; }
+}
+
+/* ===========================
+   INTERFACE
+   =========================== */
+.coin-counter {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    font-size: 1.5em;
+    color: #FFF;
+    text-shadow: 2px 2px 0 #000;
+    z-index: 100;
+}
+
+.overlay {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 999;
+}
+
+/* =========================================
+   RESPONSIVIDADE (TABLET E CELULAR)
+   ========================================= */
+
+/* Tablets e Celulares Grandes */
+@media (max-width: 768px) {
+    .mario {
+        width: 150px;
+        left: 30px;
+    }
+    .pipe {
+        width: 80px;
+    }
+    /* Blocos aumentados para tablet */
+    .bloco, .bloco1, .bloco2, .bloco3 {
+        width: 120px;
+        height: 120px;
+    }
+    .moeda {
+        width: 45px;
+    }
+
+    /* Pulo médio */
+    @keyframes jump {
+        0% { bottom: 0; }
+        40% { bottom: 200px; }
+        50% { bottom: 200px; }
+        60% { bottom: 200px; }
+        100% { bottom: 0; }
+    }
+    
+    #moeda1, #moeda4, #moeda7 { bottom: 190px; }
+    #moeda2, #moeda5 { bottom: 220px; }
+    #moeda3, #moeda6 { bottom: 140px; }
+}
+
+/* Celulares Pequenos */
+@media (max-width: 480px) {
+    .mario {
+        width: 80px; 
+        left: 10px;
+    }
+    .pipe {
+        width: 50px;
+    }
+    /* Blocos ajustados para celular */
+    .bloco, .bloco1, .bloco2, .bloco3 {
+        width: 70px;
+        height: 70px;
+    }
+
+    /* Pulo baixo */
+    @keyframes jump {
+        0% { bottom: 0; }
+        40% { bottom: 110px; }
+        50% { bottom: 110px; }
+        60% { bottom: 110px; }
+        100% { bottom: 0; }
+    }
+    
+    .clouds {
+        width: 300px;
+    }
+
+    #moeda1, #moeda4, #moeda7 { bottom: 100px; }
+    #moeda2, #moeda5 { bottom: 130px; }
+    #moeda3, #moeda6 { bottom: 80px; }
+}

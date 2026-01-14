@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caça-Palavras Master ADM XL</title>
+      <!-- Favicon -->
+  <link rel="shortcut icon" href="img/logo.png">
+ <link rel="stylesheet" href="css/header.css" />
+  <link rel="stylesheet" href="css/dark-theme.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/daltonic-theme.css" />
+  <link rel="stylesheet" href="css/daltonic-theme-dark.css" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <!-- IMPORTA O JS DO HEADER -->
+  <script src="JS/header.js"></script>
+
+    <style>
+/* =========================================================
+   VARIÁVEIS
+   ========================================================= */
+:root {
+  --primary: #bd467f;
+  --secondary: #ddacfb;
+  --accent: #eff6ff;
+  --bg: #f1f5f9;
+  --text: #1e293b;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --grid-bg: #ffffff;
+}
+
+/* =========================================================
+   RESET + BASE
+   ========================================================= */
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  text-decoration: none;
+  list-style: none;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  font-family: "Poppins", sans-serif;
+}
+
+
+body {
+  display: block;
+}
+
+
+/* =========================================================
+   TÍTULO DA PÁGINA (FORA DO HEADER)
+   ========================================================= */
+.page-header {
+  width: 100%;
+  text-align: center;
+  margin: 20px 0 10px;
+   font-family: "Poppins", sans-serif;
+}
+
+.section-title-1,
+.section-title {
+  text-align: center;
+  margin-bottom: 50px;
+  margin-top: 20px;
+  font-size: 2.5rem;
+  color: black;
+  position: relative;
+  width: 100%;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+  padding-bottom: 20px;
+}
+
+/* Linha abaixo do título */
+.section-title-1::after,
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 4px;
+  background-color: #bd467f;
+  transition: width 0.3s ease;
+}
+
+/* Quando passa o mouse, a linha aparece maior */
+.section-title:hover::after,
+.section-title-1:hover::after {
+  width: 150px;
+}
+
+.page-header .subtitle {
+  margin-top: 6px;
+  color: #64748b;
+  font-size: 0.95rem;
+  font-family: "Poppins", sans-serif !important; 
+  margin-top: -5px;
+
+}
+
+/* =========================================================
+   ÁREA DO JOGO
+   ========================================================= */
+.game-wrapper {
+  display: flex;
+  gap: 25px;
+  background: transparent;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto 40px;
+   font-family: "Poppins", sans-serif;
+}
+
+/* =========================================================
+   GRID DO CAÇA-PALAVRAS (20x20)
+   ========================================================= */
+#grid-container {
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
+  gap: 2px;
+
+  background: #cbd5e1;
+  padding: 4px;
+  border-radius: 6px;
+
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
+}
+
+/* =========================================================
+   MENU LATERAL (ACESSIBILIDADE)
+   ========================================================= */
+.accessibility-menu {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 60px;
+  padding: 60px 0 20px;
+
+  background: #ffffff;
+  border-radius: 0 30px 30px 0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+
+  z-index: 9999;
+  overflow: visible;
+}
+
+.accessibility-menu.closed {
+  transform: translate(-50px, -50%);
+}
+
+/* botão da bolinha */
+.accessibility-menu .toggle-btn {
+  position: absolute;
+  top: 10px;
+  right: -18px;
+  width: 35px;
+  height: 35px;
+  background: #111;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* ícones */
+.accessibility-menu .icons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 35px;
+}
+
+.accessibility-menu .icons button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 22px;
+  color: #111;
+  transition: 0.2s;
+}
+
+.accessibility-menu .icons button:hover {
+  transform: scale(1.2);
+}
+
+/* =========================================================
+   RESPONSIVO
+   ========================================================= */
+@media (max-width: 768px) {
+  .main-header {
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .page-header h1 {
+    font-size: 1.6rem;
+  }
+
+  .game-wrapper {
+    padding: 16px;
+  }
+}
+
+
+        .cell {
+            width: 28px;
+            height: 28px;
+            background-color: var(--grid-bg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            cursor: pointer;
+            border-radius: 2px;
+            transition: all 0.1s;
+            color: #475569;
+        }
+
+        .cell:hover {
+            background-color: var(--accent);
+            transform: scale(1.1);
+            z-index: 5;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+
+        /* Seleção e Encontrados */
+        .cell.selected {
+            background-color: var(--secondary);
+            color: white;
+        }
+
+        .cell.found {
+            background-color: var(--primary) !important;
+            color: white !important;
+            animation: pulse 0.4s;
+        }
+
+        /* Dica */
+        .cell.hint-anim {
+            background-color: #bd467f !important;
+            color: #fff !important;
+            transform: scale(1.3);
+            z-index: 10;
+            box-shadow: 0 0 15px var(--warning);
+        }
+
+        /* Painel Lateral */
+        .controls-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            min-width: 300px;
+            flex: 1;
+            max-width: 400px;
+        }
+
+        .words-box {
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            max-height: 600px; /* Altura máxima */
+        }
+
+        .words-scroll-area {
+            overflow-y: auto;
+            flex: 1;
+            padding-right: 5px;
+        }
+
+        /* Scrollbar estilizada */
+        .words-scroll-area::-webkit-scrollbar { width: 6px; }
+        .words-scroll-area::-webkit-scrollbar-track { background: #f1f5f9; }
+        .words-scroll-area::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+
+        .words-box h3 {
+            margin-top: 0;
+            color: var(--primary);
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 10px;
+            font-size: 1.1rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .word-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Duas colunas */
+            gap: 6px;
+        }
+
+        .word-item {
+            font-size: 0.8rem;
+            padding: 6px 10px;
+            background: white;
+            border-radius: 6px;
+            color: #64748b;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .word-item.found {
+            text-decoration: line-through;
+            color: var(--success);
+            background-color: #ecfdf5;
+            border-color: var(--success);
+            opacity: 0.8;
+        }
+
+        /* Botões */
+        .btn-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        
+
+button.game-button {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: transform 0.2s, filter 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+}
+
+        .btn-reset { background-color: #ddacfb; color: black; font-family: 'Poppins', sans-serif;}
+        .btn-hint { background-color: #bd467f; color: black; font-family: 'Poppins', sans-serif; }
+
+        
+
+        button:hover { filter: brightness(1.1); transform: translateY(-2px); }
+        button:active { transform: translateY(0); }
+
+        /* Modal Vitória */
+        #victory-modal {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(15, 23, 42, 0.85);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+            backdrop-filter: blur(8px);
+        }
+        
+        .modal-content {
+            background: white;
+            padding: 50px;
+            border-radius: 24px;
+            text-align: center;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            animation: bounceIn 0.5s;
+            max-width: 90%;
+        }
+
+        .modal-content h2 { color: var(--success); font-size: 2.5rem; margin: 0; }
+        .modal-content p { color: #475569; font-size: 1.3rem; margin: 15px 0 30px 0; }
+
+        /* ===================== BOTÕES PADRÃO ===================== */
+.btn {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 8px;
+
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: transform 0.2s ease, filter 0.2s ease;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.15);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+/* ===================== VARIAÇÕES ===================== */
+.btn-reset {
+  background-color: #ddacfb;
+  color: #000;
+}
+
+.btn-hint {
+  background-color: #bd467f;
+  color: #000;
+}
+
+
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.15); } 100% { transform: scale(1); } }
+        @keyframes bounceIn { 
+            0% { transform: scale(0.3); opacity: 0; } 
+            50% { transform: scale(1.05); } 
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); opacity: 1; } 
+        }
+
+        /* Responsividade para Celulares */
+        @media (max-width: 900px) {
+            .game-wrapper { flex-direction: column-reverse; align-items: center; padding: 10px; }
+            .controls-panel { width: 100%; max-width: none; }
+            
+            /* Ajuste crítico para caber 20 colunas no celular */
+            .cell { width: 16px; height: 16px; font-size: 0.6rem; border-radius: 1px; } 
+            #grid-container { gap: 1px; padding: 2px; }
+            
+            h1 { font-size: 1.5rem; }
+            .modal-content { padding: 30px; }
+        }
+
+        /* Evita seleção de texto nas células do caça-palavras */
+#grid-container, 
+#grid-container .cell {
+    user-select: none;
+    -webkit-user-select: none; /* Chrome/Safari */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* IE/Edge */
+}
+
+    </style>
+
+
+</head>
+<body class="page-quem-palavras">
+
+
+  <!-- V-Libras -->
+<div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+    </div>
+</div>
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+<script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+</script>
+
+
+  <!-- ================= HEADER ================= -->
+  <header class="main-header">
+    <div class="left">
+      <a href="index.html" class="logo">
+        <img src="img/logo.png" alt="Logo DevCore" class="logo-img">
+      </a>
+      <div class="subtitulo-logo">
+        <h1>Dev <span>Core</span></h1>
+        <p>Jogos de Administração</p>
+      </div>
+    </div>
+
+    <nav class="navbar">
+      <a href="index.html">Home</a>
+      <a href="quem-somos.html">Quem Somos</a>
+      <a href="nossos-jogos.html" class="active">Nossos Jogos</a>
+    </nav>
+
+    <div class="user-area">
+      <div class="profile-container" id="profileButton">
+        <!-- ÍCONE ORIGINAL -->
+        <i class="fa-solid fa-user-circle login-icon" id="profileIcon"></i>
+
+        <!-- NOME DO USUÁRIO (APARECE APÓS LOGIN) -->
+        <span id="profileName"></span>
+
+        <!-- SETINHA DO DROPDOWN (APARECE SOMENTE LOGADO) -->
+        <i class="fa-solid fa-caret-down" id="caretDropdown" style="display:none;"></i>
+      </div>
+
+      <!-- DROPDOWN -->
+      <div class="profile-dropdown" id="profileDropdown">
+        <a href="configurar-perfil.html">Configurar Perfil</a>
+        <a href="#" id="logoutBtn">Sair</a>
+      </div>
+    </div>
+  </header>
+
+<br><br>
+
+<!-- ================= TÍTULO DA PÁGINA ================= -->
+<section class="page-header">
+  <h2 class="section-title">Caça Palavras</h2>
+  <p class="subtitle">
+    Encontre os 28 termos essenciais da gestão corporativa.
+  </p>
+</section>
+<br><br>
+
+
+    <div class="game-wrapper">
+        <!-- Grid 20x20 -->
+        <div id="grid-container"></div>
+
+        <div class="controls-panel">
+            <div class="btn-group">
+<button class="btn btn-reset">Reiniciar</button>
+<button class="btn btn-hint">Dica</button>
+
+            </div>
+
+            <div class="words-box">
+                <h3>Palavras <span style="font-size:0.9em; color:#94a3b8">(<span id="count-display">0</span>/<span id="total-count">0</span>)</span></h3>
+                <div class="words-scroll-area">
+                    <ul class="word-list" id="word-list"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="victory-modal">
+        <div class="modal-content">
+            <h2>EXCELENTE! 🏆</h2>
+            <p>Você completou o desafio Master.</p>
+            <button class="btn-reset" onclick="initGame()" style="width: auto; padding: 15px 40px; margin: 0 auto;">Jogar Novamente</button>
+        </div>
+    </div>
+    <br><br>
+
+      <footer>
+    <div class="footer-container">
+      <div class="footer-left">
+        <!-- Logo e título lado a lado -->
+        <div class="left-footer">
+          <a href="#" class="logo">
+            <img src="img/logo.png" alt="DevCore" class="logo-empresa" />
+          </a>
+
+          <div class="subtitulo-footer">
+            <h1>Dev <span>Core</span></h1>
+            <p>Jogos de Administração</p>
+          </div>
+        </div>
+
+        <!-- Redes sociais -->
+        <div class="social-links">
+          <a href="#" class="social-icon facebook">
+            <img src="img/facebook icon.png" alt="Facebook" />
+          </a>
+          <a href="#" class="social-icon instagram">
+            <img src="img/instagram icon.png" alt="Instagram" />
+          </a>
+          <a href="#" class="social-icon linkedin">
+            <img src="img/linkedin icon.png" alt="LinkedIn" />
+          </a>
+          <a href="#" class="social-icon linkedin">
+            <img src="img/twitter.jpg" alt="LinkedIn" />
+          </a>
+          <a href="#" class="social-icon tiktok">
+            <img src="img/wtt.png" alt="WhatsApp" />
+          </a>
+        </div>
+
+        <!-- Pagamentos -->
+        <div class="payment-methods">
+        </div>
+      </div>
+
+      <div class="footer-center">
+        <h4>Assine nossa newsletter</h4>
+        <p>Seja o primeiro a descobrir novos jogos!!!</p>
+        <br />
+        <form action="#">
+          <input type="email" placeholder="Digite seu E-mail:" />
+          <button type="submit">Inscrever</button>
+        </form>
+        <br />
+        <p>
+          Ao se inscrever, você está aceitando nossa
+          <a href="#">Política de Privacidade</a>
+        </p>
+      </div>
+
+      <div class="footer-right">
+        <div class="footer-info">
+          <h4>Sobre:</h4>
+          <ul>
+            <li><a href="quem-somos.html">Quem somos</a></li>
+            <li><a href="index.html">Home (Tela Inicial)</a></li>
+            <li><a href="nossos-jogos.html">Nossos Jogos</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Meios de Contato:</h4>
+          <ul>
+            <li>Email:suporte@devcore.com</li>
+            <li>WhatsApp: (11) 99999-9999</li>
+            <li>Central de atendimento</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © 2025 Dev Core | Desenvolvido por Yasmin Ferreira Possiano |
+      Quem domina o conhecimento, administra o futuro.
+    </div>
+  </footer>
+
+<script>
+/* ================= CONFIGURAÇÕES ================= */
+const gridSize = 20;
+
+const rawWords = [
+  "ADMINISTRACAO", "PRODUTIVIDADE", "PROCESSO", "COMUNICACAO",
+  "ORGANIZACAO", "PLANEJAMENTO", "RELATORIO", "EFICIENCIA",
+  "LUCRO", "GESTAO", "PRODUTO", "CONTROLE",
+  "CLIENTE", "SISTEMA", "LIDERANCA", "FINANCAS",
+  "MARKETING", "INOVACAO", "ESTRATEGIA", "EQUIPE",
+  "METAS", "QUALIDADE", "ANALISE", "ORCAMENTO",
+  "NEGOCIACAO", "RECURSOS", "HIERARQUIA", "LOGISTICA"
+];
+
+let grid = [];
+let placedWordsInfo = [];
+let foundWords = [];
+let isSelecting = false;
+let startCell = null;
+let currentPath = [];
+
+/* ================= ELEMENTOS ================= */
+const gridEl = document.getElementById("grid-container");
+const listEl = document.getElementById("word-list");
+const countEl = document.getElementById("count-display");
+const totalEl = document.getElementById("total-count");
+const modalEl = document.getElementById("victory-modal");
+
+const resetBtn = document.querySelector(".btn-reset");
+const hintBtn = document.querySelector(".btn-hint");
+
+/* ================= EVENTOS DOS BOTÕES ================= */
+resetBtn.addEventListener("click", initGame);
+hintBtn.addEventListener("click", giveHint);
+
+/* ================= INICIALIZAÇÃO ================= */
+function initGame() {
+  modalEl.style.display = "none";
+  gridEl.innerHTML = "";
+  listEl.innerHTML = "";
+  foundWords = [];
+  placedWordsInfo = [];
+
+  grid = Array(gridSize)
+    .fill(null)
+    .map(() => Array(gridSize).fill(""));
+
+  [...rawWords]
+    .sort((a, b) => b.length - a.length)
+    .forEach(placeWordInGrid);
+
+  totalEl.textContent = placedWordsInfo.length;
+  updateCounter();
+  fillEmptySpaces();
+  renderGrid();
+  renderList();
+}
+
+/* ================= GRID ================= */
+function placeWordInGrid(word) {
+  let placed = false;
+  let attempts = 0;
+
+  while (!placed && attempts < 300) {
+    const dir = Math.floor(Math.random() * 3);
+    const r = Math.floor(Math.random() * gridSize);
+    const c = Math.floor(Math.random() * gridSize);
+
+    if (canPlace(word, r, c, dir)) {
+      insertWord(word, r, c, dir);
+      placedWordsInfo.push({ word, r, c, dir });
+      placed = true;
+    }
+    attempts++;
+  }
+}
+
+function canPlace(word, r, c, dir) {
+  for (let i = 0; i < word.length; i++) {
+    const rr = r + (dir === 1 || dir === 2 ? i : 0);
+    const cc = c + (dir === 0 || dir === 2 ? i : 0);
+    if (rr >= gridSize || cc >= gridSize) return false;
+    if (grid[rr][cc] && grid[rr][cc] !== word[i]) return false;
+  }
+  return true;
+}
+
+function insertWord(word, r, c, dir) {
+  for (let i = 0; i < word.length; i++) {
+    const rr = r + (dir === 1 || dir === 2 ? i : 0);
+    const cc = c + (dir === 0 || dir === 2 ? i : 0);
+    grid[rr][cc] = word[i];
+  }
+}
+
+function fillEmptySpaces() {
+  const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  for (let r = 0; r < gridSize; r++) {
+    for (let c = 0; c < gridSize; c++) {
+      if (!grid[r][c]) {
+        grid[r][c] = chars[Math.floor(Math.random() * chars.length)];
+      }
+    }
+  }
+}
+
+/* ================= RENDER ================= */
+function renderGrid() {
+  for (let r = 0; r < gridSize; r++) {
+    for (let c = 0; c < gridSize; c++) {
+      const cell = document.createElement("div");
+      cell.className = "cell";
+      cell.dataset.r = r;
+      cell.dataset.c = c;
+      cell.textContent = grid[r][c];
+
+      cell.addEventListener("mousedown", startSelect);
+      cell.addEventListener("mouseenter", dragSelect);
+      document.addEventListener("mouseup", endSelect);
+
+      gridEl.appendChild(cell);
+    }
+  }
+}
+
+function renderList() {
+  placedWordsInfo
+    .map(w => w.word)
+    .sort()
+    .forEach(word => {
+      const li = document.createElement("li");
+      li.id = `li-${word}`;
+      li.className = "word-item";
+      li.textContent = word;
+      listEl.appendChild(li);
+    });
+}
+
+/* ================= SELEÇÃO ================= */
+function startSelect(e) {
+  isSelecting = true;
+  startCell = getCellPos(e.target);
+  highlightRange(startCell, startCell);
+}
+
+function dragSelect(e) {
+  if (!isSelecting) return;
+  highlightRange(startCell, getCellPos(e.target));
+}
+
+function endSelect() {
+  if (!isSelecting) return;
+  isSelecting = false;
+
+  const word = currentPath.map(c => c.textContent).join("");
+  const rev = word.split("").reverse().join("");
+
+  if (!checkWord(word)) checkWord(rev);
+
+  document.querySelectorAll(".cell.selected")
+    .forEach(c => c.classList.remove("selected"));
+
+  currentPath = [];
+}
+
+function getCellPos(cell) {
+  return {
+    r: parseInt(cell.dataset.r),
+    c: parseInt(cell.dataset.c)
+  };
+}
+
+function highlightRange(start, end) {
+  document.querySelectorAll(".cell.selected")
+    .forEach(c => c.classList.remove("selected"));
+
+  currentPath = [];
+
+  const dr = end.r - start.r;
+  const dc = end.c - start.c;
+  if (dr && dc && Math.abs(dr) !== Math.abs(dc)) return;
+
+  const steps = Math.max(Math.abs(dr), Math.abs(dc));
+  const sr = dr / steps || 0;
+  const sc = dc / steps || 0;
+
+  for (let i = 0; i <= steps; i++) {
+    const r = start.r + sr * i;
+    const c = start.c + sc * i;
+    const cell = document.querySelector(`.cell[data-r='${r}'][data-c='${c}']`);
+    if (cell) {
+      cell.classList.add("selected");
+      currentPath.push(cell);
+    }
+  }
+}
+
+/* ================= VERIFICAÇÃO ================= */
+function checkWord(word) {
+  const info = placedWordsInfo.find(w => w.word === word);
+  if (!info || foundWords.includes(word)) return false;
+
+  foundWords.push(word);
+  document.getElementById(`li-${word}`).classList.add("found");
+  currentPath.forEach(c => c.classList.add("found"));
+
+  updateCounter();
+
+  if (foundWords.length === placedWordsInfo.length) {
+    setTimeout(() => modalEl.style.display = "flex", 400);
+  }
+  return true;
+}
+
+function updateCounter() {
+  countEl.textContent = foundWords.length;
+}
+
+/* ================= DICA ================= */
+function giveHint() {
+  const missing = placedWordsInfo.filter(w => !foundWords.includes(w.word));
+  if (!missing.length) return;
+
+  const w = missing[Math.floor(Math.random() * missing.length)];
+  const cell = document.querySelector(`.cell[data-r='${w.r}'][data-c='${w.c}']`);
+  cell.classList.add("hint-anim");
+  setTimeout(() => cell.classList.remove("hint-anim"), 1500);
+}
+
+/* START */
+initGame();
+</script>
+
+
+<script>
+/************************************************
+ * APLICA TEMA SALVO (VERSÃO JOGOS – DEVCORE)
+ * PADRÃO OFICIAL:
+ * - body.dark
+ * - body.daltonic
+ ************************************************/
+
+(function applyGameTheme() {
+  const theme = localStorage.getItem("theme") || "light"; // light | dark
+  const daltonic = localStorage.getItem("daltonic");     // "on" | null
+
+  const body = document.body;
+
+  // limpa estados anteriores
+  body.classList.remove("dark", "daltonic");
+
+  // aplica dark
+  if (theme === "dark") {
+    body.classList.add("dark");
+  }
+
+  // aplica daltonismo (independente do tema)
+  if (daltonic === "on") {
+    body.classList.add("daltonic");
+  }
+})();
+</script>
+
+
+
+</body>
+</html>

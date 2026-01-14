@@ -1,0 +1,628 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevCore</title>
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="css/header.css" />
+   <link rel="stylesheet" href="css/chat.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/nossos-jogos.css" />
+  <link rel="stylesheet" href="css/daltonic-theme.css" />
+  <script src="JS/chat.js" defer></script>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="img/logo.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  
+
+</head>
+
+  <body class="page-jogos">
+
+ <!-- ================= HEADER ================= -->
+  <header>
+    <div class="left">
+      <a href="index.html" class="logo">
+        <img src="img/logo.png" alt="Logo DevCore" class="logo-img">
+      </a>
+      <div class="subtitulo-logo">
+        <h1>Dev <span>Core</span></h1>
+        <p>Jogos de Administração</p>
+      </div>
+    </div>
+
+    <nav class="navbar">
+      <a href="index.html">Home</a>
+      <a href="quem-somos.html">Quem Somos</a>
+      <a href="nossos-jogos.html" class="active">Nossos Jogos</a>
+    </nav>
+
+    <div class="user-area">
+      <div class="profile-container" id="profileButton">
+        <!-- ÍCONE ORIGINAL -->
+        <i class="fa-solid fa-user-circle login-icon" id="profileIcon"></i>
+
+        <!-- NOME DO USUÁRIO (APARECE APÓS LOGIN) -->
+        <span id="profileName"></span>
+
+        <!-- SETINHA DO DROPDOWN (APARECE SOMENTE LOGADO) -->
+        <i class="fa-solid fa-caret-down" id="caretDropdown" style="display:none;"></i>
+      </div>
+
+      <!-- DROPDOWN -->
+      <div class="profile-dropdown" id="profileDropdown">
+        <a href="configurar-perfil.html">Configurar Perfil</a>
+        <a href="#" id="logoutBtn">Sair</a>
+      </div>
+    </div>
+  </header>
+    <!-- IMPORTA O JS DO HEADER -->
+  <script src="JS/header.js"></script>
+
+<br><br>
+
+<h2 class="section-title">Nossos Jogos</h2>
+
+<div class="filter-banner">
+  <button class="filter-btn active" data-category="all">Todos</button>
+  <button class="filter-btn" data-category="logistica">Logística</button>
+  <button class="filter-btn" data-category="financas">Finanças</button>
+  <button class="filter-btn" data-category="gestao">Gestão Estratégica</button>
+  <button class="filter-btn" data-category="producao">Produção</button>
+</div>
+
+<br><br>
+
+<!-- ======== SEÇÃO EQUIPE ======== -->
+  <div class="staff-container">
+
+    <div class="staff-item" data-category="logistica">
+      <div class="staff-photo">
+        <img src="img/pac-log.jpg" alt="Profissional 1">
+      </div>
+      <div class="staff-info">
+        <h3>Pac Log - Logístico</h3>
+        <p class="staff-role">Logística</p>
+        <p class="staff-desc">Releitura logística do Pac-Man</p>
+
+        <div class="staff-socials">
+          <button class="btn-agendar" data-video="https://youtu.be/gPC4GpakeIk">Regras do Jogo</button>
+          <a href="pac-log.html" class="btn-play">
+            <i class="fas fa-gamepad"></i>
+            <span class="tooltip">Jogar</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="staff-item" data-category="producao">
+      <div class="staff-photo">
+        <img src="img/mario.png" alt="Profissional 2">
+      </div>
+      <div class="staff-info">
+        <h3>Super Mario ADM-BOS</h3>
+        <p class="staff-role">Administração de Produção</p>
+        <p class="staff-desc">Mechas sob medida que iluminam seu visual.</p>
+
+        <div class="staff-socials">
+          <button class="btn-agendar" data-video="https://youtu.be/S7UYTdePpZA">Regras do Jogo</button>
+          <a href="mario.html" class="btn-play">
+            <i class="fas fa-gamepad"></i>
+            <span class="tooltip">Jogar</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="staff-item" data-category="financas">
+      <div class="staff-photo">
+        <img src="img/flappy.jpg" alt="Profissional 3">
+      </div>
+      <div class="staff-info">
+        <h3>Flappy Bird Quiz</h3>
+        <p class="staff-role">Finanças</p>
+        <p class="staff-desc">Releitura do jogo original com quiz sobre finanças.</p>
+
+        <div class="staff-socials">
+  <button class="btn-agendar" data-video="https://youtu.be/g888pl-9AfY">
+    Regras do Jogo
+  </button>
+  <a href="#" class="btn-play" onclick="alert('O jogo está passando por melhorias e será postado em breve!')">
+    <i class="fas fa-gamepad"></i>
+    <span class="tooltip">Jogar</span>
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <div class="staff-item" data-category="logistica">
+      <div class="staff-photo">
+        <img src="img/memory.jpg" alt="Profissional 4">
+      </div>
+      <div class="staff-info">
+        <h3>Jogo da Memória</h3>
+        <p class="staff-role">Logística</p>
+        <p class="staff-desc">Jogo da memória com elementos logistícos.</p>
+
+        <div class="staff-socials">
+          <button class="btn-agendar" data-video="https://youtu.be/T36hrXpOoxk">Regras do Jogo</button>
+          <a href="jogo-da-memoria.html" class="btn-play">
+            <i class="fas fa-gamepad"></i>
+            <span class="tooltip">Jogar</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+   <div class="staff-item" data-category="logistica">
+  <div class="staff-photo">
+    <img src="img/palavras.png" alt="Profissional 4">
+  </div>
+  <div class="staff-info">
+    <h3>Caça Palavras</h3>
+    <p class="staff-role">Logística</p>
+    <p class="staff-desc">Encontre palavras chaves utilzadas na logística.</p>
+
+    <div class="staff-socials">
+      <button class="btn-agendar" onclick="alert('As regras serão postadas em breve!')">
+        Regras do Jogo
+      </button>
+      <a href="palavras.html" class="btn-play">
+        <i class="fas fa-gamepad"></i>
+        <span class="tooltip">Jogar</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+
+    
+
+    <div class="staff-item" data-category="gestao">
+      <div class="staff-photo">
+        <img src="img/loja.png" alt="Profissional 6">
+      </div>
+      <div class="staff-info">
+        <h3>Loja Virtual Finance</h3>
+        <p class="staff-role">Gestão Estratégica</p>
+        <p class="staff-desc">Gestão Estratégica sobre o financiamento de uma empresa.</p>
+
+        <div class="staff-socials">
+          <button class="btn-agendar" data-video="https://youtu.be/4Cv2_EcY2O0">Regras do Jogo</button>
+          <a href="loja.html" class="btn-play">
+            <i class="fas fa-gamepad"></i>
+            <span class="tooltip">Jogar</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+<script>
+  // ====== FILTRO DE JOGOS =======
+  const filterBtns = document.querySelectorAll(".filter-btn");
+  const cards = document.querySelectorAll(".staff-item");
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      filterBtns.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      const category = btn.getAttribute("data-category");
+
+      cards.forEach(card => {
+        const cardCategory = card.getAttribute("data-category");
+        if (category === "all" || category === cardCategory) {
+          card.classList.remove("hide");
+        } else {
+          card.classList.add("hide");
+        }
+      });
+    });
+  });
+
+</script>
+
+<!-- MODAL DE REGRAS -->
+<div id="rulesModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <div class="video-container">
+      <iframe id="youtubeVideo" width="800" height="450" src=""
+        title="Regras do Jogo" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</div>
+
+<!-- JS MODAL FUNCIONAL -->
+<!-- JS MODAL FUNCIONAL COM QUALQUER LINK -->
+<script>
+  const modal = document.getElementById("rulesModal");
+  const closeBtn = modal.querySelector(".close");
+  const video = document.getElementById("youtubeVideo");
+  const regrasBtns = document.querySelectorAll(".btn-agendar");
+
+  // Função para transformar link normal em embed
+  function getEmbedURL(url) {
+    let videoId;
+
+    // Links do tipo: https://www.youtube.com/watch?v=ID
+    if (url.includes("watch?v=")) {
+      videoId = url.split("watch?v=")[1].split("&")[0];
+    }
+    // Links do tipo: https://youtu.be/ID
+    else if (url.includes("youtu.be/")) {
+      videoId = url.split("youtu.be/")[1].split("?")[0];
+    }
+    // Se já for embed
+    else if (url.includes("/embed/")) {
+      return url;
+    }
+    else {
+      return url; // retorna original se não reconhecido
+    }
+
+    return "https://www.youtube.com/embed/" + videoId;
+  }
+
+  regrasBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const videoURL = btn.getAttribute("data-video");
+      const embedURL = getEmbedURL(videoURL) + "?autoplay=1";
+      video.src = embedURL;
+      modal.style.display = "block";
+    });
+  });
+
+  closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+    video.src = "";
+  });
+
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+      video.src = "";
+    }
+  });
+
+  
+</script>
+
+
+
+<br><br><br><br><br><br>
+<footer>
+    <div class="footer-container">
+      <div class="footer-left">
+        <!-- Logo e título lado a lado -->
+        <div class="left-footer">
+          <a href="#" class="logo">
+            <img src="img/logo.png" alt="DevCore" class="logo-empresa" />
+          </a>
+
+          <div class="subtitulo-footer">
+            <h1>Dev <span>Core</span></h1>
+            <p>Jogos de Administração</p>
+          </div>
+        </div>
+
+        <!-- Redes sociais -->
+        <div class="social-links">
+          <a href="#" class="social-icon facebook">
+            <img src="img/facebook icon.png" alt="Facebook" />
+          </a>
+          <a href="#" class="social-icon instagram">
+            <img src="img/instagram icon.png" alt="Instagram" />
+          </a>
+          <a href="#" class="social-icon linkedin">
+            <img src="img/linkedin icon.png" alt="LinkedIn" />
+          </a>
+          <a href="#" class="social-icon linkedin">
+            <img src="img/twitter.jpg" alt="LinkedIn" />
+          </a>
+          <a href="#" class="social-icon tiktok">
+            <img src="img/wtt.png" alt="WhatsApp" />
+          </a>
+        </div>
+
+        <!-- Pagamentos -->
+        <div class="payment-methods">
+        </div>
+      </div>
+
+      <div class="footer-center">
+        <h4>Assine nossa newsletter</h4>
+        <p>Seja o primeiro a descobrir novos jogos!!!</p>
+        <br />
+        <form action="#">
+          <input type="email" placeholder="Digite seu E-mail:" />
+          <button type="submit">Inscrever</button>
+        </form>
+        <br />
+        <p>
+          Ao se inscrever, você está aceitando nossa
+          <a href="#">Política de Privacidade</a>
+        </p>
+      </div>
+
+      <div class="footer-right">
+        <div class="footer-info">
+          <h4>Sobre:</h4>
+          <ul>
+            <li><a href="quem-somos.html">Quem somos</a></li>
+            <li><a href="index.html">Home (Tela Inicial)</a></li>
+            <li><a href="nossos-jogos.html">Nossos Jogos</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Meios de Contato:</h4>
+          <ul>
+            <li>Email:suporte@devcore.com</li>
+            <li>WhatsApp: (11) 99999-9999</li>
+            <li>Central de atendimento</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © 2025 Dev Core | Desenvolvido por Maria Eduarda Moreira Pascoal |
+      Quem domina o conhecimento, administra o futuro.
+    </div>
+  </footer>
+
+  <!-- Plugin VLibras -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+
+  <div class="accessibility-menu closed">
+    <button class="toggle-btn">></button>
+
+    <div class="icons">
+      <button id="toggle-theme">
+        <i class="fas fa-adjust"></i>
+      </button>
+
+      <button id="daltonic-mode">
+        <i class="fas fa-eye"></i>
+
+      </button>
+
+      <button id="increase-font">
+        <i class="fas fa-plus"></i>
+      </button>
+
+      <button id="decrease-font">
+        <i class="fas fa-minus"></i>
+      </button>
+    </div>
+  </div>
+
+ <!-- ================= SCRIPTS ================= -->
+
+<!-- Font Awesome -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+<!-- VLibras (APENAS O SCRIPT, SEM INICIALIZAR AQUI) -->
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  // =================== HELPERS ===================
+  const addCss = (id, href) => {
+    let el = document.getElementById(id);
+    if (!el) {
+      el = document.createElement("link");
+      el.rel = "stylesheet";
+      el.id = id;
+      el.href = href;
+      document.head.appendChild(el);
+    } else {
+      el.href = href;
+    }
+  };
+
+  const removeCss = (id) => {
+    const el = document.getElementById(id);
+    if (el) el.remove();
+  };
+
+  const getCurrentFontSize = () => {
+    const size = window.getComputedStyle(document.body).fontSize;
+    const parsed = parseInt(size, 10);
+    return Number.isNaN(parsed) ? 16 : parsed;
+  };
+
+  // =================== MENU LATERAL ===================
+  const menu = document.querySelector(".accessibility-menu");
+  const btnToggle = document.querySelector(".toggle-btn");
+  if (btnToggle && menu) {
+    btnToggle.addEventListener("click", () => {
+      menu.classList.toggle("closed");
+      btnToggle.textContent = menu.classList.contains("closed") ? ">" : "<";
+    });
+  }
+
+  // =================== VARIÁVEIS ===================
+  const themeToggleBtn = document.getElementById("toggle-theme");
+  const daltonicBtn = document.getElementById("daltonic-mode");
+  const incBtn = document.getElementById("increase-font");
+  const decBtn = document.getElementById("decrease-font");
+
+  const ID_DARK_CSS = "dark-theme-css";
+  const ID_DALTONIC_CSS = "daltonic-theme-css";
+
+  const PATH_DARK = "css/dark-theme.css";
+  const PATH_DALTONIC_DARK = "css/daltonic-theme-dark.css";
+  const PATH_DALTONIC_LIGHT = "css/daltonic-theme-light.css";
+
+  // =================== CARREGAR PREFERÊNCIAS ===================
+  const savedTheme = localStorage.getItem("theme");
+  const savedDaltonic = localStorage.getItem("daltonic");
+  const savedFont = localStorage.getItem("font-size");
+
+  if (savedTheme === "dark") {
+    document.body.classList.add("dark");
+    addCss(ID_DARK_CSS, PATH_DARK);
+  }
+
+  if (savedDaltonic === "on") {
+    document.body.classList.add("daltonic");
+    const file = savedTheme === "dark"
+      ? PATH_DALTONIC_DARK
+      : PATH_DALTONIC_LIGHT;
+    addCss(ID_DALTONIC_CSS, file);
+  }
+
+  if (savedFont) {
+    document.body.style.fontSize = savedFont + "px";
+  }
+
+  // =================== TEMA CLARO / ESCURO ===================
+  if (themeToggleBtn) {
+    themeToggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      const isDarkNow = document.body.classList.contains("dark");
+      localStorage.setItem("theme", isDarkNow ? "dark" : "light");
+
+      isDarkNow
+        ? addCss(ID_DARK_CSS, PATH_DARK)
+        : removeCss(ID_DARK_CSS);
+
+      if (document.body.classList.contains("daltonic")) {
+        const file = isDarkNow
+          ? PATH_DALTONIC_DARK
+          : PATH_DALTONIC_LIGHT;
+        addCss(ID_DALTONIC_CSS, file);
+      }
+    });
+  }
+
+  // =================== MODO DALTÔNICO ===================
+  if (daltonicBtn) {
+    daltonicBtn.addEventListener("click", () => {
+      const ativando = !document.body.classList.contains("daltonic");
+      document.body.classList.toggle("daltonic");
+      localStorage.setItem("daltonic", ativando ? "on" : "off");
+
+      if (ativando) {
+        const file = document.body.classList.contains("dark")
+          ? PATH_DALTONIC_DARK
+          : PATH_DALTONIC_LIGHT;
+        addCss(ID_DALTONIC_CSS, file);
+      } else {
+        removeCss(ID_DALTONIC_CSS);
+      }
+    });
+  }
+
+  // =================== TAMANHO DA FONTE ===================
+  const changeFontSize = (delta) => {
+    const current = getCurrentFontSize();
+    const next = Math.max(12, Math.min(36, current + delta));
+    localStorage.setItem("font-size", next);
+    document.body.style.fontSize = next + "px";
+  };
+
+  if (incBtn) incBtn.addEventListener("click", () => changeFontSize(2));
+  if (decBtn) decBtn.addEventListener("click", () => changeFontSize(-2));
+});
+</script>
+
+<!-- ================= CHAT ================= -->
+
+<button id="chatbotToggle" class="chatbot-btn">
+  <img src="img/Chatbot-icon.png" alt="Chat" class="chat-icon">
+</button>
+
+<div class="chat-container-mini" id="chatContainer">
+  <header class="chat-header">Chat DevCore</header>
+
+  <div class="chat-box" id="chatBox">
+    <div class="bot-message message">Olá, como posso ajudar você hoje?</div>
+  </div>
+
+  <div class="input-container">
+    <input type="text" id="userInput" placeholder="Digite sua mensagem..." onkeydown="checkEnter(event)">
+    <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+  </div>
+</div>
+
+<script>
+const chatToggle = document.getElementById("chatbotToggle");
+const chatBoxContainer = document.getElementById("chatContainer");
+
+chatToggle.addEventListener("click", () => {
+  chatBoxContainer.style.display =
+    chatBoxContainer.style.display === "flex" ? "none" : "flex";
+});
+
+function sendMessage() {
+  const input = document.getElementById("userInput");
+  const message = input.value.trim();
+  if (!message) return;
+
+  const chatBox = document.getElementById("chatBox");
+
+  const userMsg = document.createElement("div");
+  userMsg.className = "user-message message";
+  userMsg.textContent = message;
+
+  chatBox.appendChild(userMsg);
+  input.value = "";
+
+  const botMsg = document.createElement("div");
+  botMsg.className = "bot-message message";
+  botMsg.textContent = "Esta é uma resposta automática do bot.";
+
+  chatBox.appendChild(botMsg);
+  chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+function checkEnter(e) {
+  if (e.key === "Enter") sendMessage();
+}
+</script>
+
+
+  <!-- V-Libras -->
+<div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+    </div>
+</div>
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+<script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+</script>
+
+
+
+
+
+
+</body>
+
+</html>
